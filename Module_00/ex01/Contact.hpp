@@ -13,61 +13,57 @@
 #ifndef     CONTACT_H
 # define    CONTACT_H
 
-class   Contact {
+# include <string>
+# include <iostream>
+
+const int   MAX_CONTACTS = 8;
+const int   MAX_WIDTH = 10;
+
+class       Contact {
     public:
-        // Add infos:
-        void    add_infos();
+        Contact();
+        ~Contact();
+        void            print( void ) const;
+        void            add_infos( void );
+        bool            getIs_empty( void ) const;
         // Getters:
-        bool    getIs_full( void ) const;
-        void    printFirst_name( void ) const;
-        void    printLast_name( void ) const;
-        void    printNickname( void ) const;
-        void    printLogin( void ) const;
-        void    printPostal_address( void ) const;
-        void    printEmail_address( void ) const;
-        void    printPhone_number( void ) const;
-        void    printBirthday_date( void ) const;
-        void    printFavorite_meal( void ) const;
-        void    printUnderwear_color( void ) const;
-        void    printDarkest_secret( void ) const;
+        std::string     getFirst_name( void ) const;
+        std::string     getLast_name( void ) const;
+        std::string     getNickname( void ) const;
+        std::string     getLogin( void ) const;
+        std::string     getPostal_address( void ) const;
+        std::string     getEmail_address( void ) const;
+        std::string     getPhone_number( void ) const;
+        std::string     getBirthday_date( void ) const;
+        std::string     getFavorite_meal( void ) const;
+        std::string     getUnderwear_color( void ) const;
+        std::string     getDarkest_secret( void ) const;
         // Setters:
-        bool    setFirst_name( char *value );
-        bool    setLast_name( char *value );
-        bool    setNickname( char *value );
-        bool    setLogin( char *value );
-        bool    setPostal_address( char *value );
-        bool    setEmail_address( char *value );
-        bool    setPhone_number( char *value );
-        bool    setBirthday_date( char *value );
-        bool    setFavorite_meal( char *value );
-        bool    setUnderwear_color( char *value );
-        bool    setDarkest_secret( char *value );
-        // Print Short:
-        void    printShortFirst_name( void ) const;
-        void    printShortLast_name( void ) const;
-        void    printShortNickname( void ) const;
-        void    printShortLogin( void ) const;
-        void    printShortPostal_address( void ) const;
-        void    printShortEmail_address( void ) const;
-        void    printShortPhone_number( void ) const;
-        void    printShortBirthday_date( void ) const;
-        void    printShortFavorite_meal( void ) const;
-        void    printShortUnderwear_color( void ) const;
-        void    printShortDarkest_secret( void ) const;
+        bool            setFirst_name( std::string first_name );
+        bool            setLast_name( std::string last_name );
+        bool            setNickname( std::string nickname );
+        bool            setLogin( std::string login );
+        bool            setPostal_address( std::string postal_address );
+        bool            setEmail_address( std::string email_address );
+        bool            setPhone_number( std::string phone_number );
+        bool            setBirthday_date( std::string birthday_date );
+        bool            setFavorite_meal( std::string favorite_meal );
+        bool            setUnderwear_color( std::string underwear_color );
+        bool            setDarkest_secret( std::string darkest_secret );
 
     private:
-        bool    _is_full = false;
-        char    _first_name[50];
-        char    _last_name[50];
-        char    _nickname[50];
-        char    _login[50];
-        char    _postal_address[50];
-        char    _email_address[50];
-        char    _phone_number[50];
-        char    _birthday_date[50];
-        char    _favorite_meal[50];
-        char    _underwear_color[50];
-        char    _darkest_secret[50];
+        bool            _is_empty;
+        std::string     _first_name;
+        std::string     _last_name;
+        std::string     _nickname;
+        std::string     _login;
+        std::string     _postal_address;
+        std::string     _email_address;
+        std::string     _phone_number;
+        std::string     _birthday_date;
+        std::string     _favorite_meal;
+        std::string     _underwear_color;
+        std::string     _darkest_secret;
 };
 
 #endif

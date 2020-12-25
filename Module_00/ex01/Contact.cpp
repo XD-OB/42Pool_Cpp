@@ -11,335 +11,187 @@
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <iostream>
-#include <cstring>
 
-//----------------   Commands:   -------------------------
+
+Contact::Contact() {
+    this->_is_empty = true;
+}
+
+Contact::~Contact() {
+    return ;
+}
+
+// Getters: ----------------------------------------------
+
+bool            Contact::getIs_empty( void ) const {
+    return this->_is_empty;
+}
+
+std::string     Contact::getFirst_name( void ) const {
+    return this->_first_name;
+}
+
+std::string     Contact::getLast_name( void ) const {
+    return this->_last_name;
+}
+
+std::string     Contact::getNickname( void ) const {
+    return this->_nickname;
+}
+
+std::string     Contact::getLogin( void ) const {
+    return this->_login;
+}
+
+std::string     Contact::getPostal_address( void ) const {
+    return this->_postal_address;
+}
+
+std::string     Contact::getEmail_address( void ) const {
+    return this->_email_address;
+}
+
+std::string     Contact::getPhone_number( void ) const {
+    return this->_phone_number;
+}
+
+std::string     Contact::getBirthday_date( void ) const {
+    return this->_birthday_date;
+}
+
+std::string     Contact::getFavorite_meal( void ) const {
+    return this->_birthday_date;
+}
+
+std::string     Contact::getUnderwear_color( void ) const {
+    return this->_underwear_color;
+}
+
+std::string     Contact::getDarkest_secret( void ) const {
+    return this->_darkest_secret;
+}
+
+// Setters:  -----------------------------------------------
+
+bool    Contact::setFirst_name( std::string first_name ) {
+    this->_first_name = first_name;
+    return true;
+}
+
+bool    Contact::setLast_name( std::string last_name ) {
+    this->_last_name = last_name;
+    return true;
+}
+
+bool    Contact::setNickname( std::string nickname ) {
+    this->_nickname = nickname;
+    return true;
+}
+
+bool    Contact::setLogin( std::string login ) {
+    this->_login = login;
+    return true;
+}
+
+bool    Contact::setPostal_address( std::string postal_address ) {
+    this->_postal_address = postal_address;
+    return true;
+}
+
+bool    Contact::setEmail_address( std::string email_address ) {
+    this->_email_address = email_address;
+    return true;
+}
+
+bool    Contact::setPhone_number( std::string phone_number ) {
+    this->_phone_number = phone_number;
+    return true;
+}
+
+bool    Contact::setBirthday_date( std::string birthday_date ) {
+    this->_birthday_date = birthday_date;
+    return true;
+}
+
+bool    Contact::setFavorite_meal( std::string favorite_meal ) {
+    this->_favorite_meal = favorite_meal;
+    return true;
+}
+
+bool    Contact::setUnderwear_color( std::string underwear_color ) {
+    this->_underwear_color = underwear_color;
+    return true;
+}
+
+bool    Contact::setDarkest_secret( std::string darkest_secret ) {
+    this->_darkest_secret = darkest_secret;
+    return true;
+}
+
+// fonctions members:  ---------------------------------------------
+
+void    Contact::print( void ) const {
+
+    std::cout << "First name: " << this->_first_name << std::endl;
+    std::cout << "Last name : " << this->_last_name << std::endl;
+    std::cout << "Nickname  : " << this->_nickname << std::endl;
+    std::cout << "Login     : " << this->_login << std::endl;
+    std::cout << "Postal address : " << this->_postal_address << std::endl;
+    std::cout << "Email address  : " << this->_email_address << std::endl;
+    std::cout << "Phone number   : " << this->_phone_number << std::endl;
+    std::cout << "Birthday date  : " << this->_birthday_date << std::endl;
+    std::cout << "Favorite meal  : " << this->_favorite_meal << std::endl;
+    std::cout << "Underwear color: " << this->_underwear_color << std::endl;
+    std::cout << "darkest secret :" << this->_darkest_secret << std::endl;
+}
 
 void    Contact::add_infos( void ) {
 
-    char    buffer[50];
+    std::string     buffer;
 
-    // Set first name
-    std::cout << "first name: ";
-    std::cin >> buffer;
+    std::cout << "First name: ";
+    std::getline( std::cin, buffer );
     this->setFirst_name(buffer);
 
-    // Set last name
-    std::cout << "last name: ";
-    std::cin >> buffer;
+    std::cout << "Last name : ";
+    std::getline( std::cin, buffer );
     this->setLast_name(buffer);
 
-    // Set Nickname
-    std::cout << "nickname: ";
-    std::cin >> buffer;
+    std::cout << "Nickname  : ";
+    std::getline( std::cin, buffer );
     this->setNickname(buffer);
 
-    // Set login
-    std::cout << "login: ";
-    std::cin >> buffer;
+    std::cout << "Login     : ";
+    std::getline( std::cin, buffer );
     this->setLogin(buffer);
 
-    // Set postal address
-    std::cout << "postal address: ";
-    std::cin >> buffer;
+    std::cout << "Postal address : ";
+    std::getline( std::cin, buffer );
     this->setPostal_address(buffer);
 
-    // Set email address
-    std::cout << "email address: ";
-    std::cin >> buffer;
+    std::cout << "Email address  : ";
+    std::getline( std::cin, buffer );
     this->setEmail_address(buffer);
 
-    // Set phone number
-    std::cout << "phone number: ";
-    std::cin >> buffer;
+    std::cout << "Phone number   : ";
+    std::getline( std::cin, buffer );
     this->setPhone_number(buffer);
 
-    // Set birthday date
-    std::cout << "birthday date: ";
-    std::cin >> buffer;
+    std::cout << "Birthday date  : ";
+    std::getline( std::cin, buffer );
     this->setBirthday_date(buffer);
 
-    // Set favorite meal
-    std::cout << "favorite meal: ";
-    std::cin >> buffer;
+    std::cout << "Favorite meal  : ";
+    std::getline( std::cin, buffer );
     this->setFavorite_meal(buffer);
 
-    // Set underwear color
-    std::cout << "underwear color: ";
-    std::cin >> buffer;
+    std::cout << "Underwear color: ";
+    std::getline( std::cin, buffer );
     this->setUnderwear_color(buffer);
 
-    // Set darkest secret
-    std::cout << "darkest secret: ";
-    std::cin >> buffer;
+    std::cout << "Darkest secret : ";
+    std::getline( std::cin, buffer );
     this->setDarkest_secret(buffer);
 
-    // Set the Full Atribute
-    this->_is_full = true;
-
-    // Printandsjdsdfsdfsdfdsfsdfsdfdsf
-    std::cout << "first name: " << this->_first_name << std::endl;
-    std::cout << "last name: " << this->_last_name << std::endl;
-    std::cout << "nickname: " << this->_nickname << std::endl;
-    std::cout << "login: " << this->_login << std::endl;
-    std::cout << "postal address: " << this->_postal_address << std::endl;
-    std::cout << "email address: " << this->_email_address << std::endl;
-    std::cout << "phone number: " << this->_phone_number << std::endl;
-    std::cout << "birthday date: " << this->_birthday_date << std::endl;
-    std::cout << "favorite meal: " << this->_favorite_meal << std::endl;
-    std::cout << "underwear color: " << this->_underwear_color << std::endl;
-    std::cout << "darkest secret: " << this->_darkest_secret << std::endl;
-}
-
-//----------------   Short Print:   -------------------------
-
-void    Contact::printShortFirst_name( void ) const {
-
-    char    buffer[11];
-    int     len;
-
-    len = strlen(this->_first_name);
-    if (len > 10) {
-        strncpy(buffer, this->_first_name, 10);
-        buffer[9] = '.';
-    } else {
-        strcpy(buffer, this->_first_name);
-        for(int i = len; i < 10; i++)
-            buffer[i] = ' ';
-    }
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortLast_name( void ) const {
-
-
-    char    buffer[11];
-    strncpy(buffer, this->_last_name, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortNickname( void ) const {
-
-    char    buffer[11];
-    strncpy(buffer, this->_nickname, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortLogin( void ) const {
-
-    char    buffer[11];
-    strncpy(buffer, this->_login, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortPostal_address( void ) const {
-
-    char    buffer[11];
-    strncpy(buffer, this->_postal_address, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortEmail_address( void ) const {
-
-    char    buffer[11];
-    strncpy(buffer, this->_email_address, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortPhone_number( void ) const {
-
-    char    buffer[11];
-    strncpy(buffer, this->_phone_number, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortBirthday_date( void ) const {
-
-        char    buffer[11];
-        strncpy(buffer, this->_birthday_date, 10);
-        buffer[9] = '.';
-        buffer[10] = '\0';
-        std::cout << buffer;
-}
-
-void    Contact::printShortFavorite_meal( void ) const {
-
-    char    buffer[11];
-    strncpy(buffer, this->_favorite_meal, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortUnderwear_color( void ) const {
-
-    char    buffer[11];
-    strncpy(buffer, this->_underwear_color, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-void    Contact::printShortDarkest_secret( void ) const {
-
-    char    buffer[11];
-    strncpy(buffer, this->_darkest_secret, 10);
-    buffer[9] = '.';
-    buffer[10] = '\0';
-    std::cout << buffer;
-}
-
-//----------------   Getters:   -------------------------
-
-bool    Contact::getIs_full( void ) const {
-
-    return this->_is_full;
-}
-
-void    Contact::printFirst_name( void ) const {
-
-    std::cout << this->_first_name;
-}
-
-void    Contact::printLast_name( void ) const {
-
-    std::cout << this->_last_name;
-}
-
-void    Contact::printNickname( void ) const {
-
-    std::cout << this->_nickname;
-}
-
-void    Contact::printLogin( void ) const {
-
-    std::cout << this->_login;
-}
-
-void    Contact::printPostal_address( void ) const {
-
-    std::cout << this->_postal_address;
-}
-
-void    Contact::printEmail_address( void ) const {
-
-    std::cout << this->_email_address;
-}
-
-void    Contact::printPhone_number( void ) const {
-
-    std::cout << this->_phone_number;
-}
-
-void    Contact::printBirthday_date( void ) const {
-
-    std::cout << this->_birthday_date;
-}
-
-void    Contact::printFavorite_meal( void ) const {
-
-    std::cout << this->_favorite_meal;
-}
-
-void    Contact::printUnderwear_color( void ) const {
-
-    std::cout << this->_underwear_color;
-}
-
-void    Contact::printDarkest_secret( void ) const {
-
-    std::cout << this->_darkest_secret;
-}
-
-//----------------   Setters:   -------------------------
-
-bool    Contact::setFirst_name( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_first_name, value);
-    return true;
-}
-
-bool    Contact::setLast_name( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_last_name, value);
-    return true;
-}
-
-bool    Contact::setNickname( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_nickname, value);
-    return true;
-}
-
-bool    Contact::setLogin( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_login, value);
-    return true;
-}
-
-bool    Contact::setPostal_address( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_postal_address, value);
-    return true;
-}
-
-bool    Contact::setEmail_address( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_email_address, value);
-    return true;
-}
-
-bool    Contact::setPhone_number( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_phone_number, value);
-    return true;
-}
-
-bool    Contact::setBirthday_date( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_birthday_date, value);
-    return true;
-}
-
-bool    Contact::setFavorite_meal( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_favorite_meal, value);
-    return true;
-}
-
-bool    Contact::setUnderwear_color( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_underwear_color, value);
-    return true;
-}
-
-bool    Contact::setDarkest_secret( char *value ) {
-    if (!value || value == "")
-        return false;
-    strcpy(this->_darkest_secret, value);
-    return true;
+    this->_is_empty = false;
 }
