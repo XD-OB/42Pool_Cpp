@@ -25,8 +25,11 @@ Phonebook::~Phonebook() {
 void        Phonebook::addContact( void ) {
     if ( this->isFull() )
         std::cout << "* Phonebook is full! Restart the program to delete all" << std::endl;
-    else
+    else {
+        std::cout << "* Adding new contact..." << std::endl;
         this->_contacts[this->_size++].add_infos();
+        std::cout << std::endl << "[√] Contact Successfully Added." << std::endl;
+    }
 }
 
 bool        Phonebook::isFull( void ) const {

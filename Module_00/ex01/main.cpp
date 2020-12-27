@@ -19,7 +19,7 @@ int     main() {
     std::string     buffer;
 
     phonebook.welcome();
-    while ( 1 ) {
+    while ( true ) {
         phonebook.prompt();
         std::getline( std::cin, buffer );
         if ( !buffer.compare( "SEARCH" ) )
