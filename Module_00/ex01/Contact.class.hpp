@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <obelouch@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,13 +16,27 @@
 # include <string>
 # include <iostream>
 
-const int   MAX_CONTACTS = 8;
-const int   MAX_WIDTH = 10;
 
 class       Contact {
+
+    private:
+        bool            _is_empty;
+        std::string     _first_name;
+        std::string     _last_name;
+        std::string     _nickname;
+        std::string     _login;
+        std::string     _postal_address;
+        std::string     _email_address;
+        std::string     _phone_number;
+        std::string     _birthday_date;
+        std::string     _favorite_meal;
+        std::string     _underwear_color;
+        std::string     _darkest_secret;
+
     public:
         Contact();
         ~Contact();
+        
         void            print( void ) const;
         void            add_infos( void );
         bool            getIs_empty( void ) const;
@@ -50,20 +64,6 @@ class       Contact {
         bool            setFavorite_meal( std::string favorite_meal );
         bool            setUnderwear_color( std::string underwear_color );
         bool            setDarkest_secret( std::string darkest_secret );
-
-    private:
-        bool            _is_empty;
-        std::string     _first_name;
-        std::string     _last_name;
-        std::string     _nickname;
-        std::string     _login;
-        std::string     _postal_address;
-        std::string     _email_address;
-        std::string     _phone_number;
-        std::string     _birthday_date;
-        std::string     _favorite_meal;
-        std::string     _underwear_color;
-        std::string     _darkest_secret;
 };
 
 #endif

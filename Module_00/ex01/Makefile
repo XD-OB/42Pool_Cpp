@@ -19,22 +19,40 @@ EOC = \033[1;0m
 
 # Compiler:
 CC = g++
-# Executable:
-EXE = megaphone
+
 # Flags:
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Wno-used -Werror
+
+# Executable:
+EXE = nul_phonebook
+
+# Name of files
+PHONEBOOK = main Phonebook.class Contact.class
+
+# Sources:
+SRCS = $(addsuffix .cpp, $(PHONEBOOK))
+
+# Objects:
+OBJS = $(addsuffix .o, $(PHONEBOOK))
+
+# Headers:
+HEADERS = Phonebook.class.hpp Contact.class.hpp
 
 
-all: megaphone.o
-	$(CC) $(CFLAGS) $@ -o $(EXE)
+all: $(EXE)	
 
-megaphone.o:
-	$(CC) $(CFLAGS) -c megaphone.cpp
+$(EXE): $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@
+	@echo "$(GREEN)[√]$(EOC)     [$(NAME) Successfully Compiled!]"
+
+$(OBJS): %.o: %.c $(HEADERS)
+	@$(CC) -c $< $(CFLAGS) -o $@
+
 
 clean:
-	rm -f megaphone.o
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(EXE)
+	@rm -f $(EXE)
 
 re: fclean all

@@ -12,27 +12,25 @@
 
 #include <iostream>
 
+/*
+**  PROGRAM
+**      Displays the command line arguments passed in uppercase.
+*/
+
 void    print_upperStr(char *str) {
 
     int     i = 0;
-
-    while (str[i]) {
-        char c = str[i];
-        i++;
-        if (c >= 'a' && c <= 'z')
-            c -= 32;
-        std::cout << c;
-    }
+    while (str[i])
+        std::cout << (char) toupper(str[i++]);
 }
 
 int     main(int argc, char **argv) {
 
     if (argc == 1)
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    else {
+    else
         for (int i = 1; i < argc ; i++)
             print_upperStr(argv[i]);
-    }
     std::cout << std::endl;
     return 0;
 }
