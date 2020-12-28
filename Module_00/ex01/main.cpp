@@ -15,13 +15,13 @@
 
 int     main() {
 
-    Phonebook       phonebook;
-    std::string     buffer;
+    Phonebook   phonebook;
+    string      buffer;
 
     phonebook.welcome();
     while ( true ) {
         phonebook.prompt();
-        std::getline( std::cin, buffer );
+        getline( cin, buffer );
         if ( !buffer.compare( "SEARCH" ) )
             phonebook.search();
         else if ( !buffer.compare( "ADD" ) )

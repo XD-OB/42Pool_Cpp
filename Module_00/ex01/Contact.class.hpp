@@ -16,54 +16,61 @@
 # include <string>
 # include <iostream>
 
+using namespace     std;
+
+#define     EMAIL_MSG   "* Wrong email format! shoud contain '@'"
+#define     ALPHA_MSG   "* Wrong input it should contain only alphabets!"
+#define     PHONE_MSG   "* Wrong phone number format! shoud contain only [+0123456789]"
+#define     NICKNAME_MSG   "* Empty Nickname! The Nickname is mondatory if the name is empty!"
+
 
 class       Contact {
 
     private:
-        bool            _is_empty;
-        std::string     _first_name;
-        std::string     _last_name;
-        std::string     _nickname;
-        std::string     _login;
-        std::string     _postal_address;
-        std::string     _email_address;
-        std::string     _phone_number;
-        std::string     _birthday_date;
-        std::string     _favorite_meal;
-        std::string     _underwear_color;
-        std::string     _darkest_secret;
+        bool        _is_empty;
+        string      _first_name;
+        string      _last_name;
+        string      _nickname;
+        string      _login;
+        string      _postal_address;
+        string      _email_address;
+        string      _phone_number;
+        string      _birthday_date;
+        string      _favorite_meal;
+        string      _underwear_color;
+        string      _darkest_secret;
 
     public:
         Contact();
         ~Contact();
         
-        void            print( void ) const;
-        void            add_infos( void );
-        bool            getIs_empty( void ) const;
+        void        print( void ) const;
+        void        add_infos( void );
+        bool        getIs_empty( void ) const;
         // Getters:
-        std::string     getFirst_name( void ) const;
-        std::string     getLast_name( void ) const;
-        std::string     getNickname( void ) const;
-        std::string     getLogin( void ) const;
-        std::string     getPostal_address( void ) const;
-        std::string     getEmail_address( void ) const;
-        std::string     getPhone_number( void ) const;
-        std::string     getBirthday_date( void ) const;
-        std::string     getFavorite_meal( void ) const;
-        std::string     getUnderwear_color( void ) const;
-        std::string     getDarkest_secret( void ) const;
+        string      getFirst_name( void ) const;
+        string      getLast_name( void ) const;
+        string      getNickname( void ) const;
+        string      getLogin( void ) const;
+        string      getPostal_address( void ) const;
+        string      getEmail_address( void ) const;
+        string      getPhone_number( void ) const;
+        string      getBirthday_date( void ) const;
+        string      getFavorite_meal( void ) const;
+        string      getUnderwear_color( void ) const;
+        string      getDarkest_secret( void ) const;
         // Setters:
-        bool            setFirst_name( std::string first_name );
-        bool            setLast_name( std::string last_name );
-        bool            setNickname( std::string nickname );
-        bool            setLogin( std::string login );
-        bool            setPostal_address( std::string postal_address );
-        bool            setEmail_address( std::string email_address );
-        bool            setPhone_number( std::string phone_number );
-        bool            setBirthday_date( std::string birthday_date );
-        bool            setFavorite_meal( std::string favorite_meal );
-        bool            setUnderwear_color( std::string underwear_color );
-        bool            setDarkest_secret( std::string darkest_secret );
+        bool        setFirst_name( string first_name );
+        bool        setLast_name( string last_name );
+        bool        setNickname( string nickname );
+        bool        setLogin( string login );
+        bool        setPostal_address( string postal_address );
+        bool        setEmail_address( string email_address );
+        bool        setPhone_number( string phone_number );
+        bool        setBirthday_date( string birthday_date );
+        bool        setFavorite_meal( string favorite_meal );
+        bool        setUnderwear_color( string underwear_color );
+        bool        setDarkest_secret( string darkest_secret );
 };
 
 #endif
