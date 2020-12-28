@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obelouch <obelouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 01:49:54 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/25 01:49:54 by obelouch         ###   ########.fr       */
+/*   Updated: 2020/12/28 03:46:41 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,23 +133,23 @@ bool    Contact::setDarkest_secret( string darkest_secret ) {
 void    Contact::print( void ) const {
 
     cout << "-------------------------------------" << endl;
-    cout << "First name: " << this->_first_name << endl;
-    cout << "Last name : " << this->_last_name << endl;
-    cout << "Nickname  : " << this->_nickname << endl;
-    cout << "Login     : " << this->_login << endl;
-    cout << "Postal address : " << this->_postal_address << endl;
-    cout << "Email address  : " << this->_email_address << endl;
-    cout << "Phone number   : " << this->_phone_number << endl;
-    cout << "Birthday date  : " << this->_birthday_date << endl;
-    cout << "Favorite meal  : " << this->_favorite_meal << endl;
-    cout << "Underwear color: " << this->_underwear_color << endl;
-    cout << "darkest secret :" << this->_darkest_secret << endl;
+    cout << "  First name      : " << this->_first_name << endl;
+    cout << "  Last name       : " << this->_last_name << endl;
+    cout << "  Nickname        : " << this->_nickname << endl;
+    cout << "  Login           : " << this->_login << endl;
+    cout << "  Postal address  : " << this->_postal_address << endl;
+    cout << "  Email address   : " << this->_email_address << endl;
+    cout << "  Phone number    : " << this->_phone_number << endl;
+    cout << "  Birthday date   : " << this->_birthday_date << endl;
+    cout << "  Favorite meal   : " << this->_favorite_meal << endl;
+    cout << "  Underwear color : " << this->_underwear_color << endl;
+    cout << "  Darkest secret  : " << this->_darkest_secret << endl;
     cout << "-------------------------------------" << endl;
 }
 
 bool    ft_str_alpha( string str ) {
 
-    for (int i = 0; str.length(); i++)
+    for (size_t i = 0; i < str.length(); i++)
         if ( isdigit(str[i]) )
             return false;
     return true;
@@ -157,7 +157,7 @@ bool    ft_str_alpha( string str ) {
 
 bool    ft_str_digit( string str ) {
 
-    int i = (str[0] == '+' || str[0] == '-') ? 1 : 0;
+    size_t  i = (str[0] == '+' || str[0] == '-') ? 1 : 0;
 
     while (i < str.length())
         if ( isalpha(str[i++]) )
@@ -203,7 +203,7 @@ void    Contact::add_infos( void ) {
     }
 
     // Login:
-    cout << "=> Login       : ";
+    cout << "=> Login     : ";
     getline( cin, buffer );
     this->setLogin(buffer);
 
@@ -216,7 +216,7 @@ void    Contact::add_infos( void ) {
     while ( true ) {
         cout << "=> Email address  : ";
         getline( cin, buffer );
-        if ( buffer.find("@") != string::npos ) {
+        if ( buffer.empty() || buffer.find("@") != string::npos ) {
             this->setEmail_address(buffer);
             break ;
         }
@@ -228,7 +228,7 @@ void    Contact::add_infos( void ) {
         cout << "=> Phone number : ";
         getline( cin, buffer );
         if ( buffer.empty() )
-            cout << "* This field is required!" << endl;
+            cout << "* Error: This field is required!" << endl;
         else if ( ft_str_digit(buffer) && buffer[0] != '-') {
             this->setPhone_number(buffer);
             break ;
@@ -242,14 +242,14 @@ void    Contact::add_infos( void ) {
     int     month;
     int     year;
 
-    cout << "=> Birthday date  : ";
+    cout << "=> Birthday date  :" << endl;
     //// get Day:
     while ( true ) {
         cout << "- Day: ";
         cin >> day;
         if ( day > 0 && day < 32 )
             break ;
-        cout << "* Invalid Input!" << endl;
+        cout << INVALID_MSG << endl;
         cin.clear();
         cin.ignore(1000, '\n');
     }
@@ -257,19 +257,22 @@ void    Contact::add_infos( void ) {
     while ( true ) {
         cout << "- Month: ";
         cin >> month;
-        if ( month > 0 && month < 12 )
+        if ( month > 0 && month < 13 )
             break ;
-        cout << "* Invalid Input!" << endl;
+        cout << INVALID_MSG << endl;
         cin.clear();
         cin.ignore(1000, '\n');
     }
     //// get Year:
     while ( true ) {
-        cout << "- Month: ";
-        cin >> month;
-        if ( month > 1900 && month < 2021 )
+        cout << "- Year: ";
+        cin >> year;
+        if ( year > 1900 && year < 2021 ) {
+            cin.clear();
+            cin.ignore(1000, '\n');
             break ;
-        cout << "* Invalid Input!" << endl;
+        }
+        cout << INVALID_MSG << endl;
         cin.clear();
         cin.ignore(1000, '\n');
     }
@@ -279,15 +282,9 @@ void    Contact::add_infos( void ) {
 
 
     // Favorite meal:
-    while ( true ) {
-        cout << "=> Favorite meal  : ";
-        getline( cin, buffer );
-        if ( ft_str_alpha(buffer) ) {
-            this->setFavorite_meal(buffer);
-            break ;
-        }
-        cout << ALPHA_MSG << endl; 
-    }
+    cout << "=> Favorite meal  : ";
+    getline( cin, buffer );
+    this->setFavorite_meal(buffer);
 
     // Underwear color:
     cout << "=> Underwear color: ";

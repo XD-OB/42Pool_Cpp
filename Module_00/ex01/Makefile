@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: obelouch <obelouch@student.1337.ma>        +#+  +:+       +#+         #
+#    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/25 00:59:50 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/25 00:59:50 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/28 02:32:38 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ EOC = \033[1;0m
 CC = g++
 
 # Flags:
-CFLAGS = -Wall -Wextra -Wno-used -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 # Executable:
 EXE = nul_phonebook
@@ -42,17 +42,18 @@ HEADERS = Phonebook.class.hpp Contact.class.hpp
 all: $(EXE)	
 
 $(EXE): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
-	@echo "$(GREEN)[√]$(EOC)     [$(NAME) Successfully Compiled!]"
+	@$(CC) $(CFLAGS) $^ -o $@
+	@echo "$(GREEN)[√]$(EOC) $(EXE) Created Successfully!"
 
-$(OBJS): %.o: %.c $(HEADERS)
+$(OBJS): %.o: %.cpp $(HEADERS)
 	@$(CC) -c $< $(CFLAGS) -o $@
-
 
 clean:
 	@rm -f $(OBJS)
+	@echo "$(YELLOW)Remove *.o"
 
 fclean: clean
 	@rm -f $(EXE)
+	@echo "$(RED)Remove megaphone!"
 
 re: fclean all

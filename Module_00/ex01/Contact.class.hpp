@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obelouch <obelouch@student.1337.fr>        +#+  +:+       +#+        */
+/*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 01:33:01 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/25 01:33:01 by obelouch         ###   ########.fr       */
+/*   Updated: 2020/12/28 03:46:48 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 
 using namespace     std;
 
-#define     EMAIL_MSG   "* Wrong email format! shoud contain '@'"
-#define     ALPHA_MSG   "* Wrong input it should contain only alphabets!"
-#define     PHONE_MSG   "* Wrong phone number format! shoud contain only [+0123456789]"
-#define     NICKNAME_MSG   "* Empty Nickname! The Nickname is mondatory if the name is empty!"
-
+#define     EMAIL_MSG   "* Error: Wrong email format!"
+#define     ALPHA_MSG   "* Error: Wrong input it should contain only alphabets!"
+#define     PHONE_MSG   "* Error: Wrong phone number format! shoud contain only [+0123456789]"
+#define     UNKW_CMD_MGS    "* Error: Unknown command used!"
+#define     NICKNAME_MSG    "* Error: Empty Nickname! The Nickname is mondatory if the name is empty!"
+#define     INVALID_MSG     "* Error: Invalid Input!"
 
 class       Contact {
 

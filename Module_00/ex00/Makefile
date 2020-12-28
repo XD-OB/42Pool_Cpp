@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: obelouch <obelouch@student.1337.ma>        +#+  +:+       +#+         #
+#    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/25 00:59:50 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/25 00:59:50 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/28 02:23:43 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,19 +22,24 @@ CC = g++
 # Executable:
 EXE = megaphone
 # Flags:
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Wno-used
 
 
-all: megaphone.o
-	$(CC) $(CFLAGS) $@ -o $(EXE)
+all: $(EXE)
 
-megaphone.o:
-	$(CC) $(CFLAGS) -c megaphone.cpp
+$(EXE): megaphone.o
+	@$(CC) $(CFLAGS) $^ -o $@
+	@echo "$(GREEN)[√]$(EOC) $(EXE) Created Successfully!"
+
+megaphone.o: megaphone.cpp
+	@$(CC) -c $< $(CFLAGS) -o $@
 
 clean:
-	rm -f megaphone.o
+	@rm -f megaphone.o
+	@echo "$(YELLOW)Remove *.o"
 
 fclean: clean
-	rm -f $(EXE)
+	@rm -f $(EXE)
+	@echo "$(RED)Remove megaphone!"
 
 re: fclean all

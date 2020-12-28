@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 04:34:57 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/27 04:34:57 by obelouch         ###   ########.fr       */
+/*   Updated: 2020/12/28 03:29:59 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@ Phonebook::~Phonebook() {
     return ;
 }
 
-void        Phonebook::addContact( void ) {
-    if ( this->isFull() )
-        cout << "* Phonebook is full! Restart the program to delete all" << endl;
-    else {
-        cout << "* Adding new contact..." << endl;
-        this->_contacts[this->_size++].add_infos();
-        cout << endl << "[√] Contact Successfully Added." << endl;
-    }
-}
 
 bool        Phonebook::isFull( void ) const {
     return ( this->_size < MAX_CONTACTS ) ? false : true;
@@ -41,23 +32,32 @@ Contact     Phonebook::getContact( int index ) const {
 }
 
 void        Phonebook::prompt( void ) const {
-    cout << ">>";
+    cout << endl << ">> ";
 }
-
 
 void        Phonebook::exit( void ) const {
 
-    cout << "* Phonebook is destroyed!" << endl;
+    cout << "* BYE! Phonebook is destroyed :)" << endl;
     std::exit(0);
+}
+
+void        Phonebook::addContact( void ) {
+    if ( this->isFull() )
+        cout << "* Phonebook is full! Restart the program to delete all" << endl;
+    else {
+        cout << "* Adding new contact..." << endl << endl;
+        this->_contacts[this->_size++].add_infos();
+        cout << endl << "[√] Contact Successfully Added." << endl;
+    }
 }
 
 void        Phonebook::welcome( void ) const {
 
-    cout << "Welcome to NUL Phonebook!" << endl  \
+    cout << "Welcome to NUL Phonebook!" << endl << endl \
         << "Available commands:" << endl   \
 		<< "- ADD:    Add a contact" << endl \
 		<< "- SEARCH: Search for a contact" << endl  \
-		<< "- EXIT:   Exit the program" << endl;
+		<< "- EXIT:   Exit the program" << endl ;
 }
 
 void        print_shortCut( string str ) {
@@ -96,10 +96,10 @@ void        Phonebook::search( void ) const {
         cout << "* List of contacts is empty!" << endl;
     } else {
         this->print();
-        this->prompt();
+        cout << "=> Enter the index: ";
         cin >> index;
         if (index < 1 || index > this->_size) {
-            cout << "* Invalid index!" << endl;
+            cout << "* Error: Invalid index!" << endl;
         } else {
             this->getContact(index - 1).print();
         }

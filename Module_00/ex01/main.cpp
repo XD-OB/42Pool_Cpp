@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obelouch <obelouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 01:51:09 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/25 01:51:09 by obelouch         ###   ########.fr       */
+/*   Updated: 2020/12/28 03:46:39 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int     main() {
             phonebook.addContact();
         else if ( !buffer.compare( "EXIT" ) )
             phonebook.exit();
+        else
+            cout << UNKW_CMD_MGS << endl;
     }
     return 0;
 }
