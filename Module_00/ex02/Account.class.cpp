@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 04:26:15 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/28 18:45:50 by obelouch         ###   ########.fr       */
+/*   Updated: 2020/12/29 17:14:19 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int     Account::_nbAccounts = 0;
 int     Account::_totalAmount = 0;
 int     Account::_totalNbDeposits = 0;
 int     Account::_totalNbWithdrawals = 0;
+
+int     nb_checkAmount = 0;
 
 
 Account::Account( int init_deposit ) : _accountIndex(Account::_nbAccounts), _amount(init_deposit), _nbDeposits(0), _nbWithdrawals(0) {
@@ -59,6 +61,7 @@ int     Account::getNbWithdrawals( void ) {
 }
 
 int     Account::checkAmount( void ) const {
+    nb_checkAmount++;
     return this->_amount;
 }
 
@@ -110,18 +113,18 @@ void    Account::displayStatus( void ) const {
 }
 
 void    Account::_displayTimestamp( void ) {
-    // Get the current data-time based on current system
-    time_t      t = time(0);
-    // Convert t to tm struct
-    struct tm   *now = localtime(&t);
+//     // Get the current data-time based on current system
+//     time_t      t = time(0);
+//     // Convert t to tm struct
+//     struct tm   *now = localtime(&t);
     
-    std::cout << '[' << now->tm_year + 1900 \
-			<< std::setw(2) << std::setfill('0') << now->tm_mon \
-			<< std::setw(2) << std::setfill('0') << now->tm_mday << '_' \
-			<< std::setw(2) << std::setfill('0') << now->tm_hour
-			<< std::setw(2) << std::setfill('0') << now->tm_min
-			<< std::setw(2) << std::setfill('0') << now->tm_sec \
-            << "] ";
+//     std::cout << '[' << now->tm_year + 1900 \
+// 			<< std::setw(2) << std::setfill('0') << (now->tm_mon + 1) \
+// 			<< std::setw(2) << std::setfill('0') << now->tm_mday << '_' \
+// 			<< std::setw(2) << std::setfill('0') << now->tm_hour
+// 			<< std::setw(2) << std::setfill('0') << now->tm_min
+// 			<< std::setw(2) << std::setfill('0') << now->tm_sec \
+//             << "] ";
 }
 
 void    Account::displayAccountsInfos( void ) {

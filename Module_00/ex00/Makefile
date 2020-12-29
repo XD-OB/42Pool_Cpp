@@ -6,7 +6,7 @@
 #    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/25 00:59:50 by obelouch          #+#    #+#              #
-#    Updated: 2020/12/28 02:23:43 by obelouch         ###   ########.fr        #
+#    Updated: 2020/12/29 16:53:53 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ GREEN = \033[1;32m
 EOC = \033[1;0m
 
 # Compiler:
-CC = g++
+CC = clang++
 # Executable:
 EXE = megaphone
 # Flags:
-CFLAGS = -Wall -Wextra -Werror -Wno-used
+CFLAGS = -Wall -Wextra -Werror
 
 
 all: $(EXE)
