@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 04:26:15 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/29 17:14:19 by obelouch         ###   ########.fr       */
+/*   Updated: 2020/12/29 17:32:59 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,18 +113,17 @@ void    Account::displayStatus( void ) const {
 }
 
 void    Account::_displayTimestamp( void ) {
-//     // Get the current data-time based on current system
-//     time_t      t = time(0);
-//     // Convert t to tm struct
-//     struct tm   *now = localtime(&t);
-    
-//     std::cout << '[' << now->tm_year + 1900 \
-// 			<< std::setw(2) << std::setfill('0') << (now->tm_mon + 1) \
-// 			<< std::setw(2) << std::setfill('0') << now->tm_mday << '_' \
-// 			<< std::setw(2) << std::setfill('0') << now->tm_hour
-// 			<< std::setw(2) << std::setfill('0') << now->tm_min
-// 			<< std::setw(2) << std::setfill('0') << now->tm_sec \
-//             << "] ";
+    // Get the current data-time based on current system
+    time_t      t = time(0);
+    // Convert t to tm struct
+    struct tm   *now = localtime(&t);  
+    std::cout << '[' << now->tm_year + 1900 \
+ 		    << std::setw(2) << std::setfill('0') << (now->tm_mon + 1) \
+ 			<< std::setw(2) << std::setfill('0') << now->tm_mday << '_' \
+ 			<< std::setw(2) << std::setfill('0') << now->tm_hour
+ 			<< std::setw(2) << std::setfill('0') << now->tm_min
+ 			<< std::setw(2) << std::setfill('0') << now->tm_sec \
+            << "] ";
 }
 
 void    Account::displayAccountsInfos( void ) {
