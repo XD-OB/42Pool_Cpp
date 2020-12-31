@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 04:39:24 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/31 05:56:33 by obelouch         ###   ########.fr       */
+/*   Created: 2020/12/31 06:28:11 by obelouch          #+#    #+#             */
+/*   Updated: 2020/12/31 06:48:34 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef     ZOMBIEHORDE_H
-# define    ZOMBIEHORDE_H
+#include "Human.hpp"
+#include <iostream>
 
-# include "Zombie.hpp"
 
-class   ZombieHorde{
-
-    private:
-        Zombie*             _horde;
-        int                 _n;
+int     main( void ) {
     
-    public:
-        ZombieHorde( int n );
-        ~ZombieHorde();
+    Human   bob;
+    
+    std::cout << bob.identify() << std::endl;
+    std::cout << bob.getBrain().identify() << std::endl;
 
-        void    advert( void ) const;
-};
-
-#endif
+    return 0;
+}

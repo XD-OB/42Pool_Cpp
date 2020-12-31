@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 04:39:24 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/31 05:56:33 by obelouch         ###   ########.fr       */
+/*   Created: 2020/12/31 06:35:45 by obelouch          #+#    #+#             */
+/*   Updated: 2020/12/31 06:59:41 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef     ZOMBIEHORDE_H
-# define    ZOMBIEHORDE_H
+#ifndef     HUMAN_H
+# define    HUMAN_H
 
-# include "Zombie.hpp"
+# include "Brain.hpp"
 
-class   ZombieHorde{
+class   Human {
 
-    private:
-        Zombie*             _horde;
-        int                 _n;
-    
     public:
-        ZombieHorde( int n );
-        ~ZombieHorde();
 
-        void    advert( void ) const;
+        Human( void );
+        ~Human( void );
+
+        Brain const     _brain;
+
+        std::string     identify( void ) const;
+        Brain const     &getBrain( void ) const;
 };
 
 #endif

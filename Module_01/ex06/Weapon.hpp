@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 04:39:24 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/31 05:56:33 by obelouch         ###   ########.fr       */
+/*   Created: 2020/12/31 07:03:55 by obelouch          #+#    #+#             */
+/*   Updated: 2020/12/31 07:14:06 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef     ZOMBIEHORDE_H
-# define    ZOMBIEHORDE_H
+#ifndef     WEAPON_H
+# define    WEAPON_H
 
-# include "Zombie.hpp"
+# include <string>
 
-class   ZombieHorde{
-
+class Weapon
+{
     private:
-        Zombie*             _horde;
-        int                 _n;
+        std::string     _type;
     
     public:
-        ZombieHorde( int n );
-        ~ZombieHorde();
+        Weapon( std::string type );
+        ~Weapon( void );
 
-        void    advert( void ) const;
+        std::string         &getType( void ) const;
+        void                setType( std::string type );    
 };
+
 
 #endif
