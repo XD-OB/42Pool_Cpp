@@ -1,7 +1,6 @@
 # 42 CPP Modules
 
-## Day00: ?
+### Day00: 100
+### Day01: ?
 
-## Day01: ?
-
-### obelouch 1337
+## obelouch 1337

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 03:23:20 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/31 04:26:20 by obelouch         ###   ########.fr       */
+/*   Updated: 2020/12/31 05:18:03 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int     main( void ) {
     
-    std::cout << "############## THE WALKING DEAD: #################" << std::endl << std::endl ;
+    std::cout << "############## THE WALKING DEAD: ep1 #################" << std::endl << std::endl ;
 
     ZombieEvent     event = ZombieEvent();
     event.setZombieType("Walker");
