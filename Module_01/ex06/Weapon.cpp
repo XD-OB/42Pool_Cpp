@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 07:03:52 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/31 07:16:37 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/01 16:07:49 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Weapon::Weapon( std::string type ) : _type(type) {}
 
 Weapon::~Weapon( void ) {}
 
-std::string&         Weapon::getType( void ) const {
+std::string&         Weapon::getType( void ) {
     return this->_type;
 }
 

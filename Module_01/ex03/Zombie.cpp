@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 02:03:55 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/31 05:43:29 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/01 17:20:43 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Zombie::Zombie( void ) {
 
 Zombie::~Zombie( void ) {
     std::cout << "Killed :) [ " << this->_name << " ("\
-            << this->_type << ")]" << std::endl;
+            << this->_type << ") ]" << std::endl;
 }
 
 std::string     Zombie::getName( void ) const {
