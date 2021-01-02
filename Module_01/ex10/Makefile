@@ -6,7 +6,7 @@
 #    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/02 04:06:50 by obelouch          #+#    #+#              #
-#    Updated: 2021/01/02 04:08:45 by obelouch         ###   ########.fr        #
+#    Updated: 2021/01/02 14:33:16 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFLAGS = -Wall -Wextra -Werror
 EXE = cato9tails
 
 # Name of files
-CAT = main
+CAT = main cato9tails
 
 # Sources:
 SRCS = $(addsuffix .cpp, $(CAT))
