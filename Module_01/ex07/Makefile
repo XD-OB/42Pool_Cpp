@@ -6,7 +6,7 @@
 #    By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/01 22:14:50 by obelouch          #+#    #+#              #
-#    Updated: 2021/01/01 22:16:39 by obelouch         ###   ########.fr        #
+#    Updated: 2021/01/02 16:39:47 by obelouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ GREEN = \033[1;32m
 EOC = \033[1;0m
 
 # Compiler:
-CC = g++
+CC = clang++
 
 # Flags:
 CFLAGS = -Wall -Wextra -Werror
