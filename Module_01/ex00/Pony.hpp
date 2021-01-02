@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 00:52:10 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/31 01:53:25 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/02 15:41:12 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 class Pony
 {
     private:
-        unsigned int    _age;
         std::string     _name;
         std::string     _color;
+        unsigned int    _age;
 
     public:
         Pony(
@@ -29,10 +29,11 @@ class Pony
             unsigned int age
         );
         ~Pony();
-
+        // Getters:
         unsigned int    getAge( void ) const ;
         std::string     getName( void ) const ;
         std::string     getColor( void ) const ;
+        // Setters:
         bool            setAge( unsigned int age );
         bool            setName( std::string name );
         bool            setColor( std::string color );

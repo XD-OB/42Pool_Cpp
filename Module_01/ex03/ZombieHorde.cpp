@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 04:39:20 by obelouch          #+#    #+#             */
-/*   Updated: 2020/12/31 05:34:53 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/02 15:53:28 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ZombieHorde::ZombieHorde( int n ) : _n(n) {
 }
 
 ZombieHorde::~ZombieHorde() {
-    std::cout << "* The horde is killed *" << std::endl;
+    std::cout << "* The horde is dead *" << std::endl;
     delete [] this->_horde;
 }
 
