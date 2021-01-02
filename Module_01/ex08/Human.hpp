@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 00:54:25 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/02 02:15:56 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/02 03:06:28 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class   Human {
         static t_attack _attacks[3];
         std::string     _name;
 
-        void            meleeAttack( std::string const & target );
-        void            rangedAttack( std::string const & target );
-        void            intimidatingShout( std::string const & target );
+        void            _meleeAttack( std::string const & target );
+        void            _rangedAttack( std::string const & target );
+        void            _intimidatingShout( std::string const & target );
 
     public:
         Human( std::string name );
