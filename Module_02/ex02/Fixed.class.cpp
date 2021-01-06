@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 23:17:02 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/06 18:20:23 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/06 19:11:19 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ Fixed::~Fixed( void ) {
     std::cout << "Destructor called" << std::endl;
 }
 
+//---------------------- Accessors: ---------------------------
+
 int         Fixed::getRawBits( void ) const {
     std::cout << "getRawBits member function called" << std::endl;
     return this->_rawBits;
@@ -48,6 +50,8 @@ void        Fixed::setRawBits( int const rawBits ) {
     this->_rawBits = rawBits;
 }
 
+//------------------------------------------------------------------
+
 int         Fixed::toInt( void ) const {
     return (this->_rawBits >> Fixed::_nBits);
 }
@@ -56,16 +60,91 @@ float       Fixed::toFloat( void ) const {
     return ((float)this->_rawBits / (1 << Fixed::_nBits)); 
 }
 
+//---------------------- Operateurs: ---------------------------
+
 Fixed &     Fixed::operator=( Fixed const & rhs ) {
 
-    std::cout << "Assignation operator called" << std::endl;
     if ( this != &rhs )
         this->_rawBits = rhs.getRawBits();
     return *this;
 }
+
+////// Arithmetic Operators:
+
+Fixed       Fixed::operator+( Fixed const & rhs ) {
+    if ( this != &rhs ) return Fixed( this->toFloat() + rhs.toFloat() );
+}
+
+Fixed       Fixed::operator-( Fixed const & rhs ) {
+    if ( this != &rhs ) return Fixed( this->toFloat() - rhs.toFloat() );
+}
+
+Fixed       Fixed::operator*( Fixed const & rhs ) {
+    if ( this != &rhs ) return Fixed( this->toFloat() * rhs.toFloat() );
+}
+
+Fixed       Fixed::operator/( Fixed const & rhs ) {
+    if ( this != &rhs ) return Fixed( this->toFloat() / rhs.toFloat() );
+}
+
+////// Incr / Decr Operators:
+
+// PRE:
+Fixed &     Fixed::operator++( void ) {
+    this->_rawBits++;
+    return *this;
+}      
+
+Fixed &     Fixed::operator--( void ) {
+    this->_rawBits--;
+    return *this;
+} 
+
+// POST:
+Fixed       Fixed::operator++( int ) {
+    Fixed   cpy = Fixed( *this );
+    this->_rawBits++;
+    return cpy;
+}      
+
+Fixed       Fixed::operator--( int ) {
+    Fixed   cpy = Fixed( *this );
+    this->_rawBits--;
+    return cpy;
+} 
+
+////// Comparaison Operators:
+
+bool        Fixed::operator>( Fixed const & rhs ) {
+    return ( this->_rawBits > rhs.getRawBits() );
+}
+
+bool        Fixed::operator<( Fixed const & rhs ) {
+    return ( this->_rawBits < rhs.getRawBits() );
+}
+
+bool        Fixed::operator>=( Fixed const & rhs ) {
+    return ( this->_rawBits >= rhs.getRawBits() );
+}
+
+bool        Fixed::operator<=( Fixed const & rhs ) {
+    return ( this->_rawBits <= rhs.getRawBits() );
+}
+
+bool        Fixed::operator==( Fixed const & rhs ) {
+    return ( this->_rawBits == rhs.getRawBits() );
+}
+
+bool        Fixed::operator!=( Fixed const & rhs ) {
+    return ( this->_rawBits != rhs.getRawBits() );
+}
+
+////////
 
 std::ostream &  operator<<( std::ostream &os, Fixed const &rhs ) {
 
     os << rhs.toFloat();
     return os;
 }
+
+//------------------------------------------------------------------
