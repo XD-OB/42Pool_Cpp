@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 22:59:41 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/06 19:07:30 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/07 03:03:27 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,15 @@
 class Fixed {
 
     private:
-        static int const    _nBits;
-        int                 _rawBits;
+        static int const        _nBits;
+        int                     _rawBits;
     
     public:
+        static Fixed &          min( Fixed & fixPoint1, Fixed & fixPoint2 );
+        static Fixed &          max( Fixed & fixPoint1, Fixed & fixPoint2 );
+        static Fixed const &    min( Fixed const & fixPoint1, Fixed const & fixPoint2 );
+        static Fixed const &    max( Fixed const & fixPoint1, Fixed const & fixPoint2 );
+
         Fixed( void );
         Fixed( int const n );
         Fixed( float const f );

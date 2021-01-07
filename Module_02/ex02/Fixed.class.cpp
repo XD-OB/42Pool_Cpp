@@ -6,47 +6,67 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 23:17:02 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/06 19:11:19 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/07 03:24:50 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.class.hpp"
 
+
 int const   Fixed::_nBits = 8;
 
-Fixed::Fixed( void ) : _rawBits(0) {
-    std::cout << "Default constructor called" << std::endl;
+Fixed &         Fixed::min( Fixed & fixPoint1, Fixed & fixPoint2 ) {
+
+    return (( fixPoint1 < fixPoint2 ) ? fixPoint1 : fixPoint2);
 }
 
+Fixed &         Fixed::max( Fixed & fixPoint1, Fixed & fixPoint2 ) {
+    
+    return (( fixPoint1 > fixPoint2 ) ? fixPoint1 : fixPoint2);
+}
+
+Fixed const &   Fixed::min( Fixed const & fixPoint1, Fixed const & fixPoint2 ) {
+
+    if ( fixPoint1.getRawBits() < fixPoint2.getRawBits() )
+        return fixPoint1;
+    return fixPoint2;
+}
+
+Fixed const &   Fixed::max( Fixed const & fixPoint1, Fixed const & fixPoint2 ) {
+    
+    if ( fixPoint1.getRawBits() > fixPoint2.getRawBits() )
+        return fixPoint1;
+    return fixPoint2;
+}
+
+
+//---------------------- Constructors: ----------------------
+
+Fixed::Fixed( void ) : _rawBits(0) {}
+
 Fixed::Fixed( int const n ) {
-    std::cout << "Int Constructor called" << std::endl;
     this->_rawBits = n << Fixed::_nBits;
 }
 
 Fixed::Fixed(float f) {
-
-	std::cout << "Float Constructor called" << std::endl;
 	this->_rawBits = (int)roundf(f * (1 << Fixed::_nBits));
 }
 
 Fixed::Fixed( Fixed const & src ) {
-    std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
-Fixed::~Fixed( void ) {
-    std::cout << "Destructor called" << std::endl;
-}
+//---------------------- Destructors: ------------------------
+
+Fixed::~Fixed( void ) {}
 
 //---------------------- Accessors: ---------------------------
 
 int         Fixed::getRawBits( void ) const {
-    std::cout << "getRawBits member function called" << std::endl;
     return this->_rawBits;
 }
 
 void        Fixed::setRawBits( int const rawBits ) {
-    std::cout << "setRawBits member function called" << std::endl;
     this->_rawBits = rawBits;
 }
 
@@ -72,19 +92,19 @@ Fixed &     Fixed::operator=( Fixed const & rhs ) {
 ////// Arithmetic Operators:
 
 Fixed       Fixed::operator+( Fixed const & rhs ) {
-    if ( this != &rhs ) return Fixed( this->toFloat() + rhs.toFloat() );
+    return Fixed( this->toFloat() + rhs.toFloat() );
 }
 
 Fixed       Fixed::operator-( Fixed const & rhs ) {
-    if ( this != &rhs ) return Fixed( this->toFloat() - rhs.toFloat() );
+    return Fixed( this->toFloat() - rhs.toFloat() );
 }
 
 Fixed       Fixed::operator*( Fixed const & rhs ) {
-    if ( this != &rhs ) return Fixed( this->toFloat() * rhs.toFloat() );
+    return Fixed( this->toFloat() * rhs.toFloat() );
 }
 
 Fixed       Fixed::operator/( Fixed const & rhs ) {
-    if ( this != &rhs ) return Fixed( this->toFloat() / rhs.toFloat() );
+    return Fixed( this->toFloat() / rhs.toFloat() );
 }
 
 ////// Incr / Decr Operators:
@@ -105,13 +125,13 @@ Fixed       Fixed::operator++( int ) {
     Fixed   cpy = Fixed( *this );
     this->_rawBits++;
     return cpy;
-}      
+}
 
 Fixed       Fixed::operator--( int ) {
     Fixed   cpy = Fixed( *this );
     this->_rawBits--;
     return cpy;
-} 
+}
 
 ////// Comparaison Operators:
 
