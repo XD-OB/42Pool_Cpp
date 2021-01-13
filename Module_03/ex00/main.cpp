@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:22 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/08 05:25:51 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/08 15:50:50 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int     main( void )
 {
+    FragTrap    clapTrap = FragTrap();
+
     return 0;
 }
