@@ -6,13 +6,14 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/13 16:37:42 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 05:56:22 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 
 //--------------- Special Attacks Structure:
@@ -21,7 +22,7 @@ struct t_specialAttack
 {
     std::string     name;
     unsigned int    damage;
-    void            (FragTrap::*f) ( std::string const & );
+    unsigned int    (FragTrap::*f) ( std::string const & );
 
 };
 
@@ -39,9 +40,9 @@ t_specialAttack         FragTrap::_attacks[ _nbrSpecialAttacks ] = {
     { "Gun Wizard", 65, &FragTrap::gunWizard },
     { "Minion Trap", 45, &FragTrap::minionTrap },
     { "Meat Unicycle", 50, &FragTrap::meatUnicycle },
-    { "Laser Inferno", 100, &FragTrap::laserInferno },
-    { "Torgue Fiesta", 90, &FragTrap::torgueFiesta },
-    { "One Shot Wonder", 85, &FragTrap::oneShotWonder },
+    { "Laser Inferno", 80, &FragTrap::laserInferno },
+    { "Torgue Fiesta", 85, &FragTrap::torgueFiesta },
+    { "One Shot Wonder", 60, &FragTrap::oneShotWonder },
 };
 
 //--------------- Constructors:
@@ -52,10 +53,8 @@ FragTrap::FragTrap( void ) :
     _energyPoints(FragTrap::_maxEnergyPoints),
     _level(1)
 {
-    std::cout << "*Random Fr4g-TP* under the name " << this->_name << ":" << std::endl \
-              << "[Booting sequence complete] Hello! I am your new FR4G-TP bot " \
-              << ", a Class C Hyperion Robot." << std::endl \
-              << "I have no name just a random Fr$g that do some Traps !" << std::endl;
+    std::cout << CYAN << "[Booting sequence complete]" << EOC \
+              << " Hello! I am your new FR4G-TP bot, a Class C Hyperion Robot. I have no name just a random Fr4g!" << std::endl;
 }
 
 FragTrap::FragTrap( std::string name ) :
@@ -64,40 +63,26 @@ FragTrap::FragTrap( std::string name ) :
     _energyPoints(FragTrap::_maxEnergyPoints),
     _level(1)
 {
-    std::cout << name << ": [Booting sequence complete] " << std::endl \
-              << "Hello! I am your new FR4G-TP bot " \
-              << ", a Class C Hyperion Robot." << std::endl \
-              << "Let's get this party started!" << std::endl;
+    std::cout << CYAN << "[Booting sequence complete]" << EOC \
+              << " Hello! I am your new FR4G-TP bot, a Class C Hyperion Robot. My name is " << this->_name << "." << std::endl;
 }
 
 FragTrap::FragTrap( FragTrap const & src )
 {
     *this = src;
-    std::cout << "Copy " << src.getName() \
-              << ": [Booting sequence complete] " << std::endl \
-              << "Hello! I am your new FR4G-TP bot " \
-              << ", a Class C Hyperion Robot." << std::endl \
-              << "Wait I'm a duplicate :( !" << std::endl;
+    std::cout << CYAN << "[Booting sequence complete]" << EOC \
+              << " Hello! I am your new FR4G-TP bot, a Class C Hyperion Robot. I'm just a duplicate of " << this->_name << "." << std::endl;
 }
 
 //--------------- Destructor:
 
 FragTrap::~FragTrap( void )
 {
-    std::cout << this->_name << ": I'M DEAD I'M DEAD OHMYGOD I'M DEAD! ..." << std::endl;
+    if ( this->_hitPoints > 0 )
+        this->talk("* CRASH TRASH MACHINE SOUND * Don't Put me in the Trash!! MASTER plzzzz! AAAAaaa...");
+    else
+        this->talk("* CRASH TRASH MACHINE SOUND * PipOI ZZZZZ ... TrgShSSS ");
 };
-
-//--------------- Private memeber functions:
-
-void            FragTrap::_showState( std::string const message ) const
-{
-    std::cout << " FR4G-TP[" << this->_name << "] <" << this->_level << "> (" \
-              << this->_hitPoints << " HP) (" << this->_energyPoints << " EP)";
-    if ( ! msg.empty() )
-    {
-        std::cout << ": " << message << 
-    }
-}
 
 //--------------- Accessors:
 
@@ -121,10 +106,19 @@ unsigned int    FragTrap::getEnergyPoints( void ) const
     return this->_energyPoints;
 }
 
+void            FragTrap::setName( std::string name )
+{
+    std::cout << CYAN << "[Changing name complete] " << EOC \
+              << this->_name << " ---> " << name << std::endl;
+    this->_name = name;
+}
+
 //--------------- Operations:
 
 FragTrap &      FragTrap::operator=( FragTrap const & rhs )
 {
+    std::cout << CYAN << "[Copying infos complete] " << EOC \
+              << rhs.getName() << " ---> " << this->_name << std::endl;
     if (this != &rhs)
     {
         this->_name = rhs.getName();
@@ -135,133 +129,177 @@ FragTrap &      FragTrap::operator=( FragTrap const & rhs )
     return *this;
 }
 
+//--------------- Functions Members:
+
+void            FragTrap::talk( std::string const message ) const
+{
+    std::cout << WHITE << "FR4G-TP[ " << YELLOW << this->_name << WHITE << " ] < " \
+              << MAGENTA << this->_level << WHITE << " > (" \
+              << RED << this->_hitPoints << WHITE << " HP) (" \
+              << BLUE << this->_energyPoints << WHITE << " EP)" \
+              << EOC << ": " << message << std::endl;
+}
+
+void            FragTrap::showState( void ) const
+{
+    std::cout << WHITE << "FR4G-TP[ " << YELLOW << this->_name << WHITE << " ] < " \
+              << MAGENTA << this->_level << WHITE << " > (" \
+              << RED << this->_hitPoints << WHITE << " HP) (" \
+              << BLUE << this->_energyPoints << WHITE << " EP)" << std::endl;
+}
+
 //--------------- Attacks:
 
-void    FragTrap::meleeAttack( std::string const & target )
+unsigned int    FragTrap::meleeAttack( std::string const & target )
 {
-    this->_showState();
-    std::cout << ": Heyyah!!" << std::endl << "* attacks " << target \
-              << " with melee attack, causing " << this->_meleeAttackDmg \
-              << " damage points! *" << std::endl;
+    if (this->_hitPoints == 0)
+    {
+        this->talk("* I wish if a can attack but i'm destroyed! *");
+        return 0; 
+    }
+    this->talk("Heyyah!!");
+    std::cout << "* " << this->_name << " attacks " << target << " with melee attack, causing " \
+              << _meleeAttackDmg << " damage points! *" << std::endl;
+    return _meleeAttackDmg;
 }
 
-void    FragTrap::rangedAttack( std::string const & target )
+unsigned int    FragTrap::rangedAttack( std::string const & target )
 {
-    std::cout << "'Oh! Take that Bullet!'" << std::endl \
-              << " FR4G-TP[" << this->_name << "] attacks " << target \
-              << " at range, causing " << this->_rangedAttackDmg \
-              << " damage points!" << std::endl;
+    if (this->_hitPoints == 0)
+    {
+        this->talk("* I wish if a can attack but i'm destroyed! *");
+        return 0; 
+    }
+    this->talk("Oh! Take that Bullet!");
+    std::cout << "* " << this->_name << " attacks " << target << " at range, causing " \
+              << _rangedAttackDmg << " damage points! *" << std::endl;
+    return _rangedAttackDmg;
 }
 
-void    FragTrap::takeDamage( unsigned int amount )
+void            FragTrap::takeDamage( unsigned int amount )
 {
-    unsigned int    hit = amount - FragTrap::_armorDamageReduction;
+    unsigned int    hit = 0;
+
+    if ( amount > FragTrap::_armorDamageReduction )
+        hit = amount - FragTrap::_armorDamageReduction;
 
     if ( _hitPoints == 0 )
-    {
-        std::cout << "DZBZZZZZ I'm Already DEAD x_x" << std::endl;
-        return ;
-    }
-    
-    if ( hit > 0 )
-    {
-        if ( _hitPoints > hit )
-        {
-            _hitPoints -= hit;
-            std::cout << "Extra ouch!!!" << std::endl;
-        }
-        else
-        {
-            _hitPoints = 0;
-            std::cout << "Woah! Oh! Jeez! I'AM DEAD :(" << std::endl ;
-        }
-        std::cout << "FR4G-TP[" << this->_name << "](" << _hitPoints << " HP)(" \
-                  << _energyPoints << " EP) receive " << hit <<" damage points!" << std::endl;
-    }
+        this->talk("DZBZZZZZ I'm Already DEAD x_x");
     else
     {
-        std::cout << "Ha ha ha! I didn't feel anything ??" << std::endl \
-                  << "FR4G-TP[" << this->_name << "](" << _hitPoints << " HP)(" \
-                  << _energyPoints <<" EP) *BLOCK* the attack" << std::endl;
+        if ( hit > 0 )
+        {
+            if ( _hitPoints > hit )
+            {
+                _hitPoints -= hit;
+                this->talk("Extra ouch!!!");
+            }
+            else
+            {
+                _hitPoints = 0;
+                this->talk("Woah! Oh! Jeez! I'AM DEAD :(");
+            }
+            std::cout << "* receive " << hit <<" damage points! *" << std::endl;
+        }
+        else
+            this->talk("Ha ha ha! I didn't feel anything ??");
     }
 }
 
-void    FragTrap::beRepaired( unsigned int amount )
+bool            FragTrap::beRepaired( unsigned int amount )
 {
     unsigned int    healing = amount;
 
-    if ( amount > _energyPoints )
+    if ( amount > this->_energyPoints )
     {
-        if ( amount > 100 - _hitPoints ) healing = 100 - _hitPoints;
-        _hitPoints += healing;
-        _energyPoints -= amount;
-        std::cout << "YES, repairing myself :)" << std::endl \
-                  << "FR4G-TP[" << this->_name << "](" << _hitPoints << " HP)(" << _energyPoints << " EP) +" \
-                  << healing << "HP  -" << amount << "EP" << std::endl;
+        this->talk("Oh NOOO! I can't heal myself, I dont have enough Energy points!");
+        return false;
     }
-    else
-    {
-        std::cout << "Oh NOOO! I can't heal myself, I dont have " << amount << " Energy points!" << std::endl \
-                  << "FR4G-TP[" << this->_name << "](" << _hitPoints << " HP)(" << _energyPoints << " EP)" << std::endl;
-    }
-    
+
+    if ( amount > 100 - this->_hitPoints ) healing = 100 - this->_hitPoints;
+    this->_hitPoints += healing;
+    this->_energyPoints -= amount;
+    this->talk("YES, repairing myself :)");
+    std::cout << "* +" << healing << "HP  -" << amount << "EP *" << std::endl;
+    return true;
 }
 
 //--------------- VAULTHUNTER.EXE:
 
-void    FragTrap::vaulthunter_dot_exe( std::string const & target )
+unsigned int    FragTrap::vaulthunter_dot_exe( std::string const & target )
 {
+    if (this->_hitPoints == 0)
+    {
+        this->talk("* I have a rage to GO VAULTHUNTER.EXE mode but sadly i'm destroyed! :( *");
+        return 0; 
+    }
+
     int     randIndex = rand() % FragTrap::_nbrSpecialAttacks;
 
     if ( _energyPoints < 25 )
-        std::cout << "NO!NO!NO! I don't have enough Energy points to compile my Combat Code X(" << std::endl;
-    else
     {
-        std::cout << "* VAULTHUNTER.EXE Activated! * Things are about to get awesome!" << std::endl;
-        _energyPoints -= 25;
-        (this->*(_attacks[ randIndex ].f))( target );
-        std::cout << "FR4G-TP[" << this->_name << "](" << this->_hitPoints << " HP)(" << this->_energyPoints \
-                  << " EP) attack '" << target << "' Using the BLIGHT BOT random special attack. [-" \
-                  << this->_attacks[ randIndex ].damage << " damage points]" << std::endl;
+        this->talk("NO!NO!NO! I don't have enough Energy points to compile my Combat Code X(");
+        return 0;
     }
+
+    this->talk("* VAULTHUNTER.EXE Activated! * Things are about to get awesome!");
+    _energyPoints -= 25;
+    (this->*(_attacks[ randIndex ].f))( target );
+    return this->_attacks[ randIndex ].damage;
 }
 
-void    FragTrap::funzerker( std::string const & target )
+unsigned int    FragTrap::funzerker( std::string const & target )
 {
-    std::cout << "I'm a sexy dinosaur! Rawr!" << std::endl;
+    this->talk("I'm a sexy dinosaur! Rawr!");
+    std::cout << "* " <<  this->_name << "attack " << target << " using the FUNZERKER random special attack. [75 dmg pts]" << std::endl;
+    return 75;
 }
 
-void    FragTrap::blightBot( std::string const & target )
+unsigned int    FragTrap::blightBot( std::string const & target )
 {
-    std::cout << "Burn them, my mini-phoenix!" << std::endl;
+    this->talk("Burn them, my mini-phoenix!");
+    std::cout << "* " <<  this->_name << "attack " << target << " using the BLINGHT BOT random special attack. [40 dmg pts]" << std::endl;
+    return 40;
 }
 
-void    FragTrap::gunWizard( std::string const & target )
+unsigned int    FragTrap::gunWizard( std::string const & target )
 {
-    std::cout << "Uh, how do I cast magic missile? Avada kedavra!" << std::endl;
+    this->talk("Uh, how do I cast magic missile? Avada kedavra!");
+    std::cout << "* " <<  this->_name << "attack " << target << " using the GUN WIZARD random special attack. [65 dmg pts]" << std::endl;
+    return 65;
 }
 
-void    FragTrap::minionTrap( std::string const & target )
+unsigned int    FragTrap::minionTrap( std::string const & target )
 {
-    std::cout << "Ratattattattatta! Powpowpowpow! Powpowpowpow! Pew-pew, pew-pew-pewpew!" << std::endl;
+    this->talk("Ratattattattatta! Powpowpowpow! Powpowpowpow! Pew-pew, pew-pewpew!");
+    std::cout << "* " <<  this->_name << "attack " << target << " using the MINION TRAP random special attack. [45 dmg pts]" << std::endl;
+    return 45;
 }
 
-void    FragTrap::meatUnicycle( std::string const & target )
+unsigned int    FragTrap::meatUnicycle( std::string const & target )
 {
-    std::cout << "* unintelligible snarling * I AM ON FIRE!!! OH GOD, PUT ME OUT!!!" << std::endl;
+    this->talk("* unintelligible snarling * I AM ON FIRE!!! OH GOD, PUT ME OUT!!!");
+    std::cout << "* " <<  this->_name << "attack " << target << " using the MEAT UNICYCLE random special attack. [50 dmg pts]" << std::endl;
+    return 50;
 }
 
-void    FragTrap::laserInferno( std::string const & target )
+unsigned int    FragTrap::laserInferno( std::string const & target )
 {
-    std::cout << "Laaasers! Everybody, dance time! Da-da-da-dun-daaa-da-da-da-dun-daaa!" << std::endl;
+    this->talk("Laaasers! Everybody, dance time! Da-da-da-dun-daaa-da-da-da-dun-daaa!");
+    std::cout << "* " <<  this->_name << "attack " << target << " using the LASER INFERNO random special attack. [80 dmg pts]" << std::endl;
+    return 80;
 }
 
-void    FragTrap::torgueFiesta( std::string const & target )
+unsigned int    FragTrap::torgueFiesta( std::string const & target )
 {
-    std::cout << "How many ways can I say... THROWING GRENADE?!" << std::endl;
+    this->talk("How many ways can I say... THROWING GRENADE?!");
+    std::cout << "* " <<  this->_name << "attack " << target << " using the TORGUE FIESTA random special attack. [85 dmg pts]" << std::endl;
+    return 85;
 }
 
-void    FragTrap::oneShotWonder( std::string const & target )
+unsigned int    FragTrap::oneShotWonder( std::string const & target )
 {
-    std::cout << "All these bullets in just one shot! Kill, reload! Kill, reload! KILL! RELOAD!" << std::endl;
+    this->talk("All these bullets in just one shot! Kill, reload! Kill, reload! KILL! RELOAD!");
+    std::cout << "* " <<  this->_name << "attack " << target << " using the ONE SHOT WONDER random special attack. [60 dmg pts]" << std::endl;
+    return 60;
 }

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:12 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/13 16:38:48 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 05:26:59 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 # define    FRAGTRAP_H
 
 # include <string>
+
+// ------------- Color Macros:
+# define     BLACK   "\033[30;1m"
+# define     RED    "\033[31;1m"
+# define     GREEN   "\033[32;1m"
+# define     YELLOW  "\033[33;1m"
+# define     BLUE    "\033[34;1m"
+# define     MAGENTA "\033[35;1m"
+# define     CYAN    "\033[36;1m"
+# define     WHITE   "\033[37;1m"
+// End of Color:
+# define     EOC    "\033[0m"
+//-----------------------------
 
 struct  t_specialAttack;
 
@@ -27,8 +40,6 @@ class   FragTrap
         static unsigned int const   _armorDamageReduction;
         static unsigned int const   _nbrSpecialAttacks;
         static t_specialAttack      _attacks[];
-
-        void            _showState( std::string const message ) const;
 
         std::string     _name;
         unsigned int    _hitPoints;
@@ -46,24 +57,27 @@ class   FragTrap
         unsigned int    getLevel( void ) const;
         unsigned int    getHitPoints( void ) const;
         unsigned int    getEnergyPoints( void ) const;
+        void            setName( std::string name );
         // operations:
         FragTrap &      operator=( FragTrap const & rhs );
         // Attacks:
-        void            meleeAttack( std::string const & target );
-        void            rangedAttack( std::string const & target );
+        unsigned int    meleeAttack( std::string const & target );
+        unsigned int    rangedAttack( std::string const & target );
+        bool            beRepaired( unsigned int amount );
         void            takeDamage( unsigned int amount );
-        void            beRepaired( unsigned int amount );
+        void            talk( std::string const message ) const;
+        void            showState( void ) const;
         // Ultimate (random special attack):
-        void            vaulthunter_dot_exe( std::string const & target );
+        unsigned int    vaulthunter_dot_exe( std::string const & target );
         // Special Attacks:
-        void            funzerker( std::string const & target );
-        void            blightBot( std::string const & target );
-        void            gunWizard( std::string const & target );
-        void            minionTrap( std::string const & target );
-        void            meatUnicycle( std::string const & target );
-        void            laserInferno( std::string const & target );
-        void            torgueFiesta( std::string const & target );
-        void            oneShotWonder( std::string const & target );
+        unsigned int    funzerker( std::string const & target );
+        unsigned int    blightBot( std::string const & target );
+        unsigned int    gunWizard( std::string const & target );
+        unsigned int    minionTrap( std::string const & target );
+        unsigned int    meatUnicycle( std::string const & target );
+        unsigned int    laserInferno( std::string const & target );
+        unsigned int    torgueFiesta( std::string const & target );
+        unsigned int    oneShotWonder( std::string const & target );
 };
 
 
