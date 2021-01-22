@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:18:34 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 11:52:36 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:46:34 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 struct  t_specialAttack;
 
-class   NinjaTrap : public ClapTrap
+class   NinjaTrap : public virtual ClapTrap
 {
     public:
         NinjaTrap( void );

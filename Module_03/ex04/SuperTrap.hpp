@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 12:34:38 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 13:00:36 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:47:02 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 
 class   SuperTrap :
-    virtual public  FragTrap,
-    virtual public  NinjaTrap
+    public          FragTrap,
+    public          NinjaTrap
 {
     public:
         SuperTrap( void );

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:12 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 11:21:12 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:08:30 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 struct  t_specialAttack;
 
-class   FragTrap : public ClapTrap
+class   FragTrap : public virtual ClapTrap
 {
     private:
         static unsigned int const   _nbrSpecialAttacks;
