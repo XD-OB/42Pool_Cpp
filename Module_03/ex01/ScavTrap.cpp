@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 07:25:30 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 08:48:57 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,13 @@ unsigned int const      ScavTrap::_maxEnergyPoints = 50;
 unsigned int const      ScavTrap::_rangedAttackDmg = 15;
 unsigned int const      ScavTrap::_meleeAttackDmg = 20;
 unsigned int const      ScavTrap::_armorDamageReduction = 3;
-unsigned int const      ScavTrap::_nbrChallenges = 8;
+unsigned int const      ScavTrap::_nbrChallenges = 5;
 std::string const       ScavTrap::_challenges[ _nbrChallenges ] = {
-    "Funzerker",
-    "Blight Bot",
-    "Gun Wizard",
-    "Minion Trap",
-    "Meat Unicycle",
-    "Laser Inferno",
-    "Torgue Fiesta",
-    "One Shot Wonder",
+    "Bring me 10 heads of Dark Siders.",
+    "Defeat Ivar the Boneless in a Melee Combat.",
+    "This One is HARD!!! try to flirt with Serena <3.",
+    "Unlucky! you will pass over my DEAD BODY.",
+    "Answer FAST!! Which Disney Princess has the least amount of screen time?",
 };
 
 //--------------- Constructors:
@@ -218,23 +215,18 @@ bool            ScavTrap::beRepaired( unsigned int amount )
 
 //--------------- Challenge New Comer Special:
 
-unsigned int    ScavTrap::challengeNewcomer( std::string const & target )
+void            ScavTrap::challengeNewcomer( std::string const & target )
 {
+    std::string     message = "";
+
     if (this->_hitPoints == 0)
+        message = "* I'm dead X( Seeing '" + target + "' pass my doors without passing the challenge is SAD :( *";
+    else
     {
-        this->talk("* I have a rage to GO VAULTHUNTER.EXE mode but sadly i'm destroyed! :( *");
-        return 0; 
+        if ( _energyPoints < 25 )
+            message = "NO!NO!NO! I don't have enough Energy points to compile my challenge Code X(";
+        else
+            message = "* Chanllenge Mode Activated! * Prepare yourself " + target + ": " + _challenges[ rand() % ScavTrap::_nbrChallenges ];
     }
-
-    int     randIndex = rand() % ScavTrap::_nbrChallenges;
-
-    if ( _energyPoints < 25 )
-    {
-        this->talk("NO!NO!NO! I don't have enough Energy points to compile my Combat Code X(");
-        return 0;
-    }
-
-    std::string     message = "* Chanllenge Mode Activated! * A challenge for the Neeeew Comer!: " + _challenges[ randIndex ];
-
     this->talk( message );
 }

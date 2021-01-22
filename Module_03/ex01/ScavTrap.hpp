@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:12 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 07:07:15 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 08:43:35 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,7 @@ class   ScavTrap
         void            talk( std::string const message ) const;
         void            showState( void ) const;
         // Ultimate (random special attack):
-        unsigned int    challengeNewcomer( std::string const & target );
-        // Special Attacks:
-        unsigned int    funzerker( std::string const & target );
-        unsigned int    blightBot( std::string const & target );
-        unsigned int    gunWizard( std::string const & target );
-        unsigned int    minionTrap( std::string const & target );
-        unsigned int    meatUnicycle( std::string const & target );
-        unsigned int    laserInferno( std::string const & target );
-        unsigned int    torgueFiesta( std::string const & target );
-        unsigned int    oneShotWonder( std::string const & target );
+        void            challengeNewcomer( std::string const & target );
 };
 
 
