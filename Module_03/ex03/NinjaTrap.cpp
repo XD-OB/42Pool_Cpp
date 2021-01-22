@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:18:31 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 11:51:56 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:09:29 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,26 @@ unsigned int    NinjaTrap::ninjaShoebox( NinjaTrap & ninjaTrap )
         {
             this->_energyPoints -= 20;
             message = "* Sad dark face * " + ninjaTrap.getName() + " Beat it, fleshbag!";
+        }
+    }
+    this->talk( message );
+    return 40;
+}
+
+unsigned int    NinjaTrap::ninjaShoebox( ClapTrap & clapTrap )
+{
+    std::string     message = "";
+
+    if (this->_hitPoints == 0)
+        message = "* I'm Dead X( A Dios Robolution :/ *";
+    else
+    {
+        if ( this->_energyPoints < 20 )
+            message = "No No I'm exausted! No energy left";
+        else
+        {
+            this->_energyPoints -= 20;
+            message = clapTrap.getName() + " FUCK u OlD ClAP, one kick for you and one for your childs!";
         }
     }
     this->talk( message );

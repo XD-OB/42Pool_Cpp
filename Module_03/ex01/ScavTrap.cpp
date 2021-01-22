@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 10:15:21 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:37:21 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void            ScavTrap::setName( std::string name )
 ScavTrap &      ScavTrap::operator=( ScavTrap const & rhs )
 {
     std::cout << CYAN << "[Copying infos complete] " << EOC \
-              << rhs.getName() << " ---> " << this->_name << std::endl;
+              << rhs.getName() << std::endl;
     if (this != &rhs)
     {
         this->_name = rhs.getName();

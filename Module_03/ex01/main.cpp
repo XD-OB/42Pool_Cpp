@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:22 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 09:05:48 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:39:00 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ int     main( void )
     scavSnow.challengeNewcomer( clapTrap.getName() );
 
     // Turn off the motherfuckers
+    std::cout << RED << "GOD" << EOC << ": A quick trick to test copy" << std::endl;
+    ScavTrap    copyDipsie = ScavTrap(dipsie);
+    dipsie.setName("copy dipsie");
+    copyDipsie.showState();
     std::cout << RED << "GOD" << EOC << ": The show is over i will destroy u all." << std::endl;
 
     return 0;

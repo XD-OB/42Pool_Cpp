@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:18:34 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 11:52:36 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:02:59 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class   NinjaTrap : public ClapTrap
         NinjaTrap &      operator=( NinjaTrap const & rhs );
         // Special Attack Ninja Shoe Box:
         unsigned int    ninjaShoebox( NinjaTrap & ninjaTrap );
+        unsigned int    ninjaShoebox( ClapTrap & clapTrap );
         unsigned int    ninjaShoebox( FragTrap & fragTrap );
         unsigned int    ninjaShoebox( ScavTrap & scavTrap );
 };

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 10:16:11 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:52:14 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void            FragTrap::setName( std::string name )
 FragTrap &      FragTrap::operator=( FragTrap const & rhs )
 {
     std::cout << CYAN << "[Copying infos complete] " << EOC \
-              << rhs.getName() << " ---> " << this->_name << std::endl;
+              << rhs.getName() << std::endl;
     if (this != &rhs)
     {
         this->_name = rhs.getName();
@@ -247,13 +247,17 @@ unsigned int    FragTrap::vaulthunter_dot_exe( std::string const & target )
         return 0; 
     }
 
-    int     randIndex = rand() % FragTrap::_nbrSpecialAttacks;
-
     if ( this->_energyPoints < 25 )
     {
         this->talk("NO!NO!NO! I don't have enough Energy points to compile my Combat Code X(");
         return 0;
     }
+
+    /* initialize random seed: */
+    srand (time(NULL));
+
+
+    int     randIndex = rand() % FragTrap::_nbrSpecialAttacks;
 
     this->talk("* VAULTHUNTER.EXE Activated! * Things are about to get awesome!");
     this->_energyPoints -= 25;

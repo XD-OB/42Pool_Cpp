@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 10:15:46 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:51:15 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
 
 //--------------- Special Attacks Structure:
 
@@ -128,7 +127,7 @@ void            FragTrap::setName( std::string name )
 FragTrap &      FragTrap::operator=( FragTrap const & rhs )
 {
     std::cout << CYAN << "[Copying infos complete] " << EOC \
-              << rhs.getName() << " ---> " << this->_name << std::endl;
+              << rhs.getName() << std::endl;
     if (this != &rhs)
     {
         this->_name = rhs.getName();
@@ -246,6 +245,9 @@ unsigned int    FragTrap::vaulthunter_dot_exe( std::string const & target )
         this->talk("* I have a rage to GO VAULTHUNTER.EXE mode but sadly i'm destroyed! :( *");
         return 0; 
     }
+
+    /* initialize random seed: */
+    srand (time(NULL));
 
     int     randIndex = rand() % FragTrap::_nbrSpecialAttacks;
 
