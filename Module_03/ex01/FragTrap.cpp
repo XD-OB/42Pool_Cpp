@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 08:07:46 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 10:15:46 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,16 @@ unsigned int    FragTrap::getEnergyPoints( void ) const
     return this->_energyPoints;
 }
 
+unsigned int    FragTrap::getMeleeAttackDmg( void ) const
+{
+    return FragTrap::_meleeAttackDmg;
+}
+
+unsigned int    FragTrap::getRangedAttackDmg( void ) const
+{
+    return FragTrap::_rangedAttackDmg;
+}
+
 void            FragTrap::setName( std::string name )
 {
     std::cout << CYAN << "[Changing name complete] " << EOC \
@@ -145,7 +155,7 @@ void            FragTrap::showState( void ) const
     std::cout << WHITE << "FR4G-TP[ " << YELLOW << this->_name << WHITE << " ] < " \
               << MAGENTA << this->_level << WHITE << " > (" \
               << RED << this->_hitPoints << WHITE << " HP) (" \
-              << BLUE << this->_energyPoints << WHITE << " EP)" << std::endl;
+              << BLUE << this->_energyPoints << WHITE << " EP)" << EOC << std::endl;
 }
 
 //--------------- Attacks:
@@ -218,7 +228,8 @@ bool            FragTrap::beRepaired( unsigned int amount )
         return false;
     }
 
-    if ( amount > 100 - this->_hitPoints ) healing = 100 - this->_hitPoints;
+    if ( amount > FragTrap::_maxHitPoints - this->_hitPoints )
+        healing = FragTrap::_maxHitPoints - this->_hitPoints;
     this->_hitPoints += healing;
     this->_energyPoints -= healing;
     this->talk("YES, repairing myself :)");
@@ -238,14 +249,14 @@ unsigned int    FragTrap::vaulthunter_dot_exe( std::string const & target )
 
     int     randIndex = rand() % FragTrap::_nbrSpecialAttacks;
 
-    if ( _energyPoints < 25 )
+    if ( this->_energyPoints < 25 )
     {
         this->talk("NO!NO!NO! I don't have enough Energy points to compile my Combat Code X(");
         return 0;
     }
 
     this->talk("* VAULTHUNTER.EXE Activated! * Things are about to get awesome!");
-    _energyPoints -= 25;
+    this->_energyPoints -= 25;
     (this->*(_attacks[ randIndex ].f))( target );
     return this->_attacks[ randIndex ].damage;
 }

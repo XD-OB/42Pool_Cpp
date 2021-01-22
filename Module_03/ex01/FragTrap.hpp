@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:12 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 08:07:50 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 09:20:01 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ class   FragTrap
         unsigned int    getLevel( void ) const;
         unsigned int    getHitPoints( void ) const;
         unsigned int    getEnergyPoints( void ) const;
+        unsigned int    getMeleeAttackDmg( void ) const;
+        unsigned int    getRangedAttackDmg( void ) const;
         void            setName( std::string name );
         // operations:
         FragTrap &      operator=( FragTrap const & rhs );

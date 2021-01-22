@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 08:48:57 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/22 10:15:21 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,16 @@ unsigned int    ScavTrap::getEnergyPoints( void ) const
     return this->_energyPoints;
 }
 
+unsigned int    ScavTrap::getMeleeAttackDmg( void ) const
+{
+    return ScavTrap::_meleeAttackDmg;
+}
+
+unsigned int    ScavTrap::getRangedAttackDmg( void ) const
+{
+    return ScavTrap::_rangedAttackDmg;
+}
+
 void            ScavTrap::setName( std::string name )
 {
     std::cout << CYAN << "[Changing name complete] " << EOC \
@@ -132,7 +142,7 @@ void            ScavTrap::showState( void ) const
     std::cout << WHITE << "SC4V-TP[ " << YELLOW << this->_name << WHITE << " ] < " \
               << MAGENTA << this->_level << WHITE << " > (" \
               << RED << this->_hitPoints << WHITE << " HP) (" \
-              << BLUE << this->_energyPoints << WHITE << " EP)" << std::endl;
+              << BLUE << this->_energyPoints << WHITE << " EP)" << EOC << std::endl;
 }
 
 //--------------- Attacks:
@@ -205,7 +215,8 @@ bool            ScavTrap::beRepaired( unsigned int amount )
         return false;
     }
 
-    if ( amount > 100 - this->_hitPoints ) healing = 100 - this->_hitPoints;
+    if ( amount > ScavTrap::_maxHitPoints - this->_hitPoints )
+        healing = ScavTrap::_maxHitPoints - this->_hitPoints;
     this->_hitPoints += healing;
     this->_energyPoints -= healing;
     this->talk("YES, repairing myself :)");
@@ -223,10 +234,13 @@ void            ScavTrap::challengeNewcomer( std::string const & target )
         message = "* I'm dead X( Seeing '" + target + "' pass my doors without passing the challenge is SAD :( *";
     else
     {
-        if ( _energyPoints < 25 )
+        if ( this->_energyPoints < 5 )
             message = "NO!NO!NO! I don't have enough Energy points to compile my challenge Code X(";
         else
+        {
+            this->_energyPoints -= 5;
             message = "* Chanllenge Mode Activated! * Prepare yourself " + target + ": " + _challenges[ rand() % ScavTrap::_nbrChallenges ];
+        }
     }
     this->talk( message );
 }
