@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.hpp                                      :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 18:44:26 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 22:24:36 by obelouch         ###   ########.fr       */
+/*   Created: 2021/01/23 23:24:46 by obelouch          #+#    #+#             */
+/*   Updated: 2021/01/23 23:56:54 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef     POWERFIST_H
-# define    POWERFIST_H
+#ifndef     SUPERMUTANT_H
+# define    SUPERMUTANT_H
 
-#include "AWeapon.hpp"
+# include "Enemy.hpp"
 
 
-class   PowerFist : public AWeapon
+class   SuperMutant : public Enemy
 {
     private:
-        PowerFist(
-            std::string name,
-            int apcost,
-            int damage
+        SuperMutant(
+            int hp,
+            std::string type
         );
 
     public:
-        PowerFist( void );
-        PowerFist( PowerFist const & src );
-        ~PowerFist( void );
-        // Operation:
-        PowerFist &     operator=( PowerFist const & rhs );
-        // Member fctes:
-        void            attack( void ) const;
+        SuperMutant( void );
+        SuperMutant( SuperMutant const & src );
+        ~SuperMutant( void );
+        // operators
+        SuperMutant &   operator=( SuperMutant const & rhs );
+        // Member fctes
+        void            takeDamage( int damage );
 };
 
 #endif

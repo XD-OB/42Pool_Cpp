@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:40:39 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 16:58:34 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/24 05:20:55 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 
 class   Victim
 {
+    private:
+        Victim( void );
+
     protected:
         std::string     _name;
-        // L'astuce XD
-        Victim( void );
 
     public:
         Victim( std::string name );
         Victim( Victim const & src );
-        ~Victim( void );
+        virtual ~Victim( void );
         // Operators:
         Victim &        operator=( Victim const & rhs );
         // Getters:

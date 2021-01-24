@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:24:02 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 19:21:29 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/24 05:19:37 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class   AWeapon
             int damage
         );
         AWeapon( AWeapon const & src );
-        ~AWeapon( void );
+        virtual ~AWeapon( void );
         // Operations:
         AWeapon &               operator=( AWeapon const & rhs );
         // Getters:

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:44:23 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 19:21:31 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/23 22:46:49 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,20 @@
 
 #include "AWeapon.hpp"
 
+
 class   PlasmaRifle : public AWeapon
 {
-    public:
-        PlasmaRifle( void );
+    private:
         PlasmaRifle(
             std::string name,
             int apcost,
             int damage
         );
-        ~PlasmaRifle();
+
+    public:
+        PlasmaRifle( void );
+        PlasmaRifle( PlasmaRifle const & src );
+        ~PlasmaRifle( void );
         // Operation:
         PlasmaRifle &   operator=( PlasmaRifle const & rhs );
         // Member fctes:

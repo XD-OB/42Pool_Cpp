@@ -17,7 +17,7 @@
 **  Constructors
 */
 
-Noble::Noble( void ) : Victim()
+Noble::Noble( void ) : Victim("Mr NoName")
 { 
     std::cout << "Money can buy you happiness." << std::endl;
 }

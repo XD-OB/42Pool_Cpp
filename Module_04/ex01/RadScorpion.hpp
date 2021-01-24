@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.hpp                                      :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 18:44:26 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 22:24:36 by obelouch         ###   ########.fr       */
+/*   Created: 2021/01/23 23:56:59 by obelouch          #+#    #+#             */
+/*   Updated: 2021/01/23 23:58:16 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef     POWERFIST_H
-# define    POWERFIST_H
+#ifndef     RADSCORPION_H
+# define    RADSCORPION_H
 
-#include "AWeapon.hpp"
+# include "Enemy.hpp"
 
 
-class   PowerFist : public AWeapon
+class   RadScorpion : public Enemy
 {
     private:
-        PowerFist(
-            std::string name,
-            int apcost,
-            int damage
+        RadScorpion(
+            int hp,
+            std::string type
         );
 
     public:
-        PowerFist( void );
-        PowerFist( PowerFist const & src );
-        ~PowerFist( void );
-        // Operation:
-        PowerFist &     operator=( PowerFist const & rhs );
-        // Member fctes:
-        void            attack( void ) const;
+        RadScorpion( void );
+        RadScorpion( RadScorpion const & src );
+        ~RadScorpion( void );
+        // operators
+        RadScorpion &   operator=( RadScorpion const & rhs );
+        // Member fctes
+        void            takeDamage( int damage );
 };
 
 #endif
