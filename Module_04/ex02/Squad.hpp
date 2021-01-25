@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 03:20:47 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/25 04:21:10 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/25 17:16:50 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@
 # include "ISquad.hpp"
 # include <cstdlib>
 
-typedef struct t_squad;
+struct t_container;
 
 class   Squad : public ISquad
 {
     private:
         int             _count;
-        t_squad *       _squad;
+        t_container *   _squad;
+
+        void            _copySquadFrom( Squad const & src );
+        void            _destroy( void );
+        bool            _isUnitInSquad( ISpaceMarine * marine ) const;  
 
     public:
         Squad( void );
@@ -32,7 +36,7 @@ class   Squad : public ISquad
         Squad &         operator=( Squad const & rhs );
         // Accessors
         int             getCount( void ) const;
-        ISpaceMarine*   getUnit( int ) const;
+        ISpaceMarine *  getUnit( int ) const;
         // Member fctes
         int             push( ISpaceMarine* );
 };
