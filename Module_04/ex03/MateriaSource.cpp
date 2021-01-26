@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 05:12:37 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 05:53:16 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:57:30 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,10 @@ void        MateriaSource::_invFree( void )
 
 void        MateriaSource::learnMateria( AMateria * m )
 {
-    if ( this->_invSize >= 0 && this->_invSize < 3 )
-        this->_inventory[ this->_invSize++ ] = m;
-    this->_invSize++;
+    if ( this->_invSize < 3 ) {
+        this->_inventory[ this->_invSize ] = m;
+        this->_invSize++;
+    }
 }
 
 AMateria *  MateriaSource::createMateria( std::string const & type )
