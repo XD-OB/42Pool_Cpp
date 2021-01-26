@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:26:05 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/24 05:01:37 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:10:13 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,15 @@ class Character
         Character( std::string const & name );
         Character( Character const & src );
         ~Character( void );
+    
         // Operators
         Character &             operator=( Character const & rhs );
+    
         // Getters
         std::string const &     getName( void ) const;
         int                     getAP( void ) const;
         AWeapon *               getWeapon( void ) const;
+
         // Members fctes
         void                    recoverAP( void );
         void                    equip( AWeapon * weapon );

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 16:15:58 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 18:10:45 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 21:58:31 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class   Peon : public Victim
     public:
         Peon( std::string name );
         Peon( Peon const & src );
-        ~Peon( void );
+        virtual ~Peon( void );
         // Operators:
         Peon &      operator=( Peon const & rhs );
         // Member fcts:

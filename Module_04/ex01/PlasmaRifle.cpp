@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:51:38 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 22:29:15 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:03:58 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 PlasmaRifle::PlasmaRifle( void ) :
     AWeapon( "Plasma Rifle", 5, 21 )
 { }
-
-PlasmaRifle::PlasmaRifle( std::string name, int apcost, int damage ) :
-    AWeapon( name, apcost, damage )
-{
-    std::cout << "WARNING!! A change in the weapon is made internaly." << std::endl;
-}
 
 PlasmaRifle::PlasmaRifle( PlasmaRifle const & src ) :
     AWeapon( "Plasma Rifle", 5, 21 )

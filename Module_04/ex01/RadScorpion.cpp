@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 23:58:34 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/24 05:07:21 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:08:30 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ RadScorpion::RadScorpion( RadScorpion const & src ) :
     std::cout <<  "* click click click *" << std::endl;
 }
 
-RadScorpion::RadScorpion( int hp, std::string type ) :
-    Enemy( hp, type )
-{
-    std::cout <<  "* click click click *" << std::endl;
-}
-
 /*
 **  Destructor
 */
@@ -57,13 +51,4 @@ RadScorpion &   RadScorpion::operator=( RadScorpion const & rhs )
         this->_type = rhs.getType();
     }
     return *this;
-}
-
-/*
-**  Member functions
-*/
-
-void            RadScorpion::takeDamage( int damage )
-{
-    Enemy::takeDamage( damage );
 }

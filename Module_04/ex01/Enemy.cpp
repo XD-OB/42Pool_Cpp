@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 22:30:45 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/24 05:17:57 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:06:17 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,7 @@ std::string const &     Enemy::getType( void ) const
 void        Enemy::takeDamage( int damage )
 {
     if ( damage > 0 ) {
-        if ( damage > this->_hp ) {
-            this->_hp = 0;
-        } else {
-            this->_hp -= damage;
-        }
+        if ( damage > this->_hp ) this->_hp = 0;
+        else this->_hp -= damage;
     }
 }

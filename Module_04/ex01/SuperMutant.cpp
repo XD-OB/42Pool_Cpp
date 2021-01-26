@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 23:24:44 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/24 05:06:18 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:09:13 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@ SuperMutant::SuperMutant( SuperMutant const & src ) :
     Enemy( src )
 {
     *this = src;
-    std::cout << "Gaaah. Break everything !" << std::endl;
-}
-
-SuperMutant::SuperMutant( int hp, std::string type ) :
-    Enemy( hp, type )
-{
     std::cout << "Gaaah. Break everything !" << std::endl;
 }
 

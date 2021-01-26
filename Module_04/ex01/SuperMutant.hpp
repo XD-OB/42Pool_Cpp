@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 23:24:46 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 23:56:54 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:16:27 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,14 @@
 
 class   SuperMutant : public Enemy
 {
-    private:
-        SuperMutant(
-            int hp,
-            std::string type
-        );
-
     public:
         SuperMutant( void );
         SuperMutant( SuperMutant const & src );
-        ~SuperMutant( void );
+        virtual ~SuperMutant( void );
+
         // operators
         SuperMutant &   operator=( SuperMutant const & rhs );
+
         // Member fctes
         void            takeDamage( int damage );
 };

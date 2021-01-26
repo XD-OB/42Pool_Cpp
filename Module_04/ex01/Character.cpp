@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 00:25:52 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/24 05:14:39 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:11:50 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,8 @@ AWeapon *               Character::getWeapon( void ) const
 void        Character::recoverAP( void )
 {
     if ( this->_ap < 40 ) {
-        if ( this->_ap > 30 )
-            this->_ap = 40;
-        else
-            this->_ap += 10;
+        if ( this->_ap > 30 ) this->_ap = 40;
+        else this->_ap += 10;
     }
 }
 
@@ -128,8 +126,8 @@ void        Character::attack( Enemy * enemy )
     
     // Damage the enemy
     enemy->takeDamage( this->_weapon->getDamage() );
-    if ( enemy->getHP() <= 0 )
-        delete enemy; 
+
+    if ( enemy->getHP() <= 0 ) delete enemy; 
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:42:12 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/25 17:48:08 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:34:01 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int     main( void )
 
     // Declare squads
     ISquad *        vlc = new Squad;
-    ISquad *        clv = new Squad;
+    ISquad *        clv;
     
     // Create clones
     ilyas = oussama->clone();
@@ -61,7 +61,6 @@ int     main( void )
     }
 
     delete vlc;
-    delete clv;
 
     return 0;
 }

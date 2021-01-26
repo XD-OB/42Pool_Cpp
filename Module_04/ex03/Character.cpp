@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 03:36:26 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 05:49:12 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 22:39:20 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ Character::Character( std::string name ) :
 
 Character::Character( Character const & src )
 {
-    *this = src;
+    this->_name = src.getName();
+    this->_copyInvFrom(src);
 }
 
 /*
