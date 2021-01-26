@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:06:27 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 18:51:04 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 21:44:38 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ DeepCoreMiner &    DeepCoreMiner::operator=( DeepCoreMiner const & rhs )
 **  Member functions
 */
 
-void            DeepCoreMiner::mine( IAsteroid * asteroid )
+void                DeepCoreMiner::mine( IAsteroid * asteroid )
 {
     std::cout << "* mining deep ... got " << asteroid->beMined(this) << " ! *" << std::endl;
 }

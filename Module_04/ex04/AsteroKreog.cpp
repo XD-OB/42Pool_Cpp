@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:58:10 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 18:59:07 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 21:43:26 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ AsteroKreog &           AsteroKreog::operator=( AsteroKreog const & rhs )
 **  Accessors
 */
 
-std::string	const &		AsteroKreog::getName( void ) const
+std::string             AsteroKreog::getName( void ) const
 {
     return "AsteroKreog";
 }

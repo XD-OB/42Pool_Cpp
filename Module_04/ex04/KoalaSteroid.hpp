@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:34:37 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 18:53:14 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 21:45:22 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ class   KoalaSteroid : public IAsteroid
         ~KoalaSteroid( void );
 
         // Operators
-        KoalaSteroid &          operator=( KoalaSteroid const & rhs );
+        KoalaSteroid &      operator=( KoalaSteroid const & rhs );
 
         // Accessors
-		std::string	const &		getName( void ) const;
+		std::string         getName( void ) const;
         
         // Member fctes
-        std::string				beMined( DeepCoreMiner * laser ) const;
-		std::string				beMined( StripMiner * laser ) const;
+        std::string			beMined( DeepCoreMiner * laser ) const;
+		std::string			beMined( StripMiner * laser ) const;
 };
 
 #endif

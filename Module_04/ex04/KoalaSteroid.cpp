@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:51:56 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 18:57:57 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/26 21:45:06 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ KoalaSteroid::~KoalaSteroid( void )
 **  Operators
 */
 
-KoalaSteroid &    KoalaSteroid::operator=( KoalaSteroid const & rhs )
+KoalaSteroid &      KoalaSteroid::operator=( KoalaSteroid const & rhs )
 {
     (void)rhs;
     return *this;
@@ -45,7 +45,7 @@ KoalaSteroid &    KoalaSteroid::operator=( KoalaSteroid const & rhs )
 **  Accessors
 */
 
-std::string	const &		KoalaSteroid::getName( void ) const
+std::string         KoalaSteroid::getName( void ) const
 {
     return "KoalaSteroid";
 }
@@ -54,13 +54,13 @@ std::string	const &		KoalaSteroid::getName( void ) const
 **  Member functions
 */
 
-std::string				KoalaSteroid::beMined( StripMiner * laser ) const
+std::string			KoalaSteroid::beMined( StripMiner * laser ) const
 {
 	(void)laser;
 	return "Tartarite";
 }
 
-std::string				KoalaSteroid::beMined( DeepCoreMiner * laser ) const
+std::string			KoalaSteroid::beMined( DeepCoreMiner * laser ) const
 {
 	(void)laser;
 	return "Mithril";
