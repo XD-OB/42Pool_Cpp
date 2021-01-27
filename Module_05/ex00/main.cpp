@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:30 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/27 00:51:01 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/27 02:55:15 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int     main( void )
 {
-    std::cout << "------------ In a world dominated by Bureaucracy -----------" \
+    std::cout << "------------ In a world dominated by Bureaucracy ep1 -----------" \
               << std::endl << std::endl;
 
     // Oussama 1
