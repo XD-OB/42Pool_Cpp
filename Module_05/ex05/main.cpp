@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 03:12:59 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 19:33:16 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 22:03:36 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,24 @@
 #include <iostream>
 #include <cstdlib>
 
+// ------------- Color Macros:
+# define     BLACK   "\033[30;1m"
+# define     RED    "\033[31;1m"
+# define     GREEN   "\033[32;1m"
+# define     YELLOW  "\033[33;1m"
+# define     BLUE    "\033[34;1m"
+# define     MAGENTA "\033[35;1m"
+# define     CYAN    "\033[36;1m"
+# define     WHITE   "\033[37;1m"
+// End of Color:
+# define     EOC    "\033[0m"
+//-----------------------------
+
 
 int     main( void )
 {
-    std::cout << "=========== In a world dominated by Bureaucracy ep 6: 'Long Waiting List in the Central' ===========" \
-              << std::endl << std::endl;
+    std::cout << MAGENTA << "=========== In a world dominated by Bureaucracy ep 6: 'Long Waiting List in the Central' ===========" \
+              << EOC << std::endl << std::endl;
 
     CentralBureaucracy      mo9ata3a;
 
@@ -42,22 +55,22 @@ int     main( void )
     Bureaucrat      karim("Karim", 3);
     Bureaucrat      yassine("Yassine", 7);
     Bureaucrat      raphael("Raphael", 10);
-    // Part 2 -6-
-    Bureaucrat      antony("Antony", 9);
-    Bureaucrat      dan("Dan", 8);
-    Bureaucrat      abdelhak("Abdelhak", 6);
-    //// Waiting List
-    Bureaucrat      tony("Tony", 5);
-    Bureaucrat      abdellah("abdellah", 16);
-    Bureaucrat      fatiha("Fatiha", 20);
+    // Part 2
+    Bureaucrat      hajar("Hajar", 14);
+    Bureaucrat      leila("Leila", 6);
+    // interim employee
+    Bureaucrat      interimEmployee("interim employee", 11);
+    
 
-
-    // Empty central
-    std::cout << "------ Empty Central Bureaucracy: -------------" << std::endl;
-    std::cout << mo9ata3a << std::endl;
-    std::cout << std::endl;
+// Empty central
+    std::cout << GREEN << "------ Empty Central Bureaucracy: -------------"
+              << EOC << std::endl;
+    std::cout << mo9ata3a;
+    std::cout << "-- Work:" << std::endl;
     mo9ata3a.doBureaucracy();
-    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << GREEN << "-----------------------------------------------" 
+              << EOC << std::endl << std::endl;
+
 
     // Feed bureaucrats (part1)
     mo9ata3a.feed( oussama );
@@ -73,22 +86,21 @@ int     main( void )
     mo9ata3a.feed( manal );
     mo9ata3a.feed( john );
     mo9ata3a.feed( amjad );
-    mo9ata3a.feed( mohammed );
-    mo9ata3a.feed( manal );
-    mo9ata3a.feed( john );
-    mo9ata3a.feed( amjad );
     mo9ata3a.feed( douae );
     mo9ata3a.feed( karim );
     mo9ata3a.feed( yassine );
     mo9ata3a.feed( raphael );
 
     
-    // No targets
-    std::cout << "------ No targets in Central Bureaucracy: -------" << std::endl;
-    std::cout << mo9ata3a << std::endl;
-    std::cout << std::endl;
+// No targets
+    std::cout << GREEN << "------ No targets in Central Bureaucracy: -------"
+              << EOC << std::endl;
+    std::cout << mo9ata3a;
+    std::cout << "-- Work:" << std::endl;
     mo9ata3a.doBureaucracy();
-    std::cout << "-------------------------------------------------" << std::endl;
+    std::cout << GREEN << "-------------------------------------------------" 
+              << EOC << std::endl << std::endl;
+
 
     // Feed Targets
     mo9ata3a.queueUp("Kriss");
@@ -107,41 +119,48 @@ int     main( void )
 	mo9ata3a.queueUp("Kylan");
 
     
-    // Nice central
-    std::cout << "------ Nice Central Bureaucracy: ----------------" << std::endl;
-    std::cout << mo9ata3a << std::endl;
-    std::cout << std::endl;
+// Nice central
+    std::cout << GREEN << "------ Nice Central Bureaucracy: ----------------" 
+              << EOC << std::endl;
+    std::cout << mo9ata3a;
+    std::cout << "-- Work:" << std::endl;
     mo9ata3a.doBureaucracy();
-    std::cout << "-------------------------------------------------" << std::endl;
+    std::cout << GREEN << "-------------------------------------------------" 
+              << EOC << std::endl << std::endl;
 
-    // Fire a Bureaucrat with no one in the Waiting list:
-    std::cout << " ------ try to fire a bureaucrat in Central Bureaucracy: ---" << std::endl;
+// Fire a Bureaucrat with no one in the Waiting list:
+    std::cout << GREEN << " ------ try to fire a bureaucrat in Central Bureaucracy: --------"
+              << EOC << std::endl;
     mo9ata3a.fireBureaucrat();
-    std::cout << mo9ata3a << std::endl;
-    std::cout << std::endl;
-     std::cout << "-----------------------------------------------------------" << std::endl;
+    std::cout << mo9ata3a;
+    std::cout << GREEN << "-----------------------------------------------------------------"
+              << EOC << std::endl << std::endl;
 
-    // Feed bureaucrats (part2)
-    mo9ata3a.feed( antony);
-    mo9ata3a.feed( dan );
-    mo9ata3a.feed( abdelhak );
-    mo9ata3a.feed( tony );
-    mo9ata3a.feed( abdellah );
-    mo9ata3a.feed( fatiha );
+    // Feed bureaucrats (part2) 24
+    for ( int i = 0; i < 23; i++ )
+        mo9ata3a.feed( interimEmployee );
+    mo9ata3a.feed( hajar );
+    mo9ata3a.feed( leila );
+    
 
-    // More bureaucrats
-    std::cout << "------ More Bureaucrats in Central Bureaucracy: -----" << std::endl;
-    std::cout << mo9ata3a << std::endl;
-    std::cout << std::endl;
+// More bureaucrats
+    std::cout << GREEN << "------ More Bureaucrats in Central Bureaucracy: -----" \
+              << EOC << std::endl;
+    std::cout << mo9ata3a;
+    std::cout << "-- Work:" << std::endl;
     mo9ata3a.doBureaucracy();
-    std::cout << "-----------------------------------------------------" << std::endl;
+    std::cout << GREEN << "-----------------------------------------------------" \
+              << EOC << std::endl << std::endl;
 
-    // Fire a Bureaucrat with no one in the Waiting list:
-    std::cout << " ------ Fire a bureaucrat in Central Bureaucracy: ---" << std::endl;
+// Fire a Bureaucrat:
+    std::cout << GREEN << " ------ Fire a bureaucrat in Central Bureaucracy: ---" \
+              << EOC << std::endl;
     mo9ata3a.fireBureaucrat();
-    std::cout << mo9ata3a << std::endl;
-    std::cout << std::endl;
-    std::cout << "-----------------------------------------------------" << std::endl;
+    std::cout << mo9ata3a;
+    std::cout << "-- Work:" << std::endl;
+    mo9ata3a.doBureaucracy();
+    std::cout << GREEN << "-----------------------------------------------------" \
+              << EOC << std::endl << std::endl;
 
     return 0;
 }

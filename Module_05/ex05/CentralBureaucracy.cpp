@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:23 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 19:31:48 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 21:59:04 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ CentralBureaucracy::CentralBureaucracy( void ) :
     _nbrTargets(0),
     _bureaucratWL(NULL),
     _targetWL(NULL)
-{
-    srand( time(NULL) );
-}
+{ }
 
 CentralBureaucracy::CentralBureaucracy( CentralBureaucracy const & src )
 {
@@ -72,7 +70,7 @@ CentralBureaucracy &    CentralBureaucracy::operator=( CentralBureaucracy const 
 
 std::ostream &          operator<<( std::ostream & os, CentralBureaucracy const & rhs )
 {
-    std::cout << " ==> Central Bureaucracy:" << std::endl;
+    std::cout << "* Central Bureaucracy:" << std::endl;
     std::cout << "Number of full offices: " << rhs.getNbrFullOffices() << std::endl;
     std::cout << "Number of bureaucrats: " << rhs.getNbrBureaucrats() << std::endl;
     std::cout << "Number of targets: " << rhs.getNbrTargets() << std::endl;
@@ -115,32 +113,34 @@ void        CentralBureaucracy::showBWL( void )
 const {
     t_bureaucratWL *    current = this->_bureaucratWL;
 
-    std::cout << "Bueraucrats Waiting List:" << std::endl;
+    std::cout << "-- Buraucrats Waiting List:" << std::endl;
 
-    if ( !current )
-        std::cout << "Empty!" << std::endl;
-
-    std::cout << "Oooh littles ones waiting for a seat in the central :(" << std::endl;
-    while ( current ) {
-        std::cout << current->bureaucrat << std::endl;
-        current = current->next;
+    if ( current ) {
+        std::cout << "Oooh littles ones waiting for a seat in the central :(" << std::endl;    
+        while ( current ) {
+            std::cout << *current->bureaucrat << std::endl;
+            current = current->next;
+        }
     }
+    else std::cout << "Empty!" << std::endl;
+
 }
 
 void        CentralBureaucracy::showTWL( void )
 const {
     t_targetWL *        current = this->_targetWL;
 
-    std::cout << "Targets Waiting List:" << std::endl;
+    std::cout << "-- Targets Waiting List:" << std::endl;
 
-    if ( !current )
-        std::cout << "Empty!" << std::endl;
-
-    std::cout << "Miserables people waiting for their work to be done :(" << std::endl;
-    while ( current ) {
-        std::cout << current->target << std::endl;
-        current = current->next;
+    if ( current ) {
+        std::cout << "Miserables people waiting for their work to be done :(" << std::endl;
+        while ( current ) {
+            std::cout << current->target << std::endl;
+            current = current->next;
+        }   
     }
+    else std::cout << "Empty!" << std::endl;
+
 }
 
 void        CentralBureaucracy::feed( Bureaucrat & bureaucrat )
@@ -185,7 +185,8 @@ void        CentralBureaucracy::queueUp( std::string const & target )
 
 void        CentralBureaucracy::fireBureaucrat( void )
 {
-    int     indexOffice;
+    t_bureaucratWL *    tmp;
+    int                 indexOffice;
 
     if ( this->_nbrFullOffices == 0 ) {
         std::cout << "Central Bureaucracy: No one to fire!" << std::endl;
@@ -213,6 +214,10 @@ void        CentralBureaucracy::fireBureaucrat( void )
 
         if ( rand() % 2 ) this->_central[ indexOffice ].setSigner( this->_bureaucratWL->bureaucrat );
         else              this->_central[ indexOffice ].setExecutor( this->_bureaucratWL->bureaucrat );
+
+        tmp = this->_bureaucratWL;
+        this->_bureaucratWL = this->_bureaucratWL->next;
+        delete tmp;
     }
 }
 
