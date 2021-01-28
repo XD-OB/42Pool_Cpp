@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 03:12:59 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 03:35:23 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 17:31:43 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ void    exec_doBureaucracy(
 
 int     main( void )
 {
+    std::cout << "------------ In a world dominated by Bureaucracy ep 5: 'The Office Block' -----------" \
+              << std::endl << std::endl;
+
     Bureaucrat      oussama = Bureaucrat("Oussama Belouche", 10);
     Bureaucrat      anas = Bureaucrat("Anas Elouargui", 54);
     Bureaucrat      ali = Bureaucrat("Ali Zabadi", 150);

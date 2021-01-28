@@ -57,22 +57,40 @@ OfficeBlock &      OfficeBlock::operator=( OfficeBlock const & rhs )
 }
 
 /*
-**  Setters    ===============================================================
+**  Accessors    =============================================================
 */
+// Getters:
 
-void        OfficeBlock::setIntern( Intern & intern )
-{
-    this->_intern = &intern;
+Intern *        OfficeBlock::getIntern( void )
+const {
+    return this->_intern;
 }
 
-void        OfficeBlock::setSigner( Bureaucrat & signer )
-{
-    this->_signer = &signer;
+Bureaucrat *    OfficeBlock::getSigner( void )
+const {
+    return this->_signer;
 }
 
-void        OfficeBlock::setExecutor( Bureaucrat & executor )
+Bureaucrat *    OfficeBlock::getExecutor( void )
+const {
+    return this->_executor;
+}
+
+// Setters:
+
+void        OfficeBlock::setIntern( Intern * intern )
 {
-    this->_executor = &executor;
+    this->_intern = intern;
+}
+
+void        OfficeBlock::setSigner( Bureaucrat * signer )
+{
+    this->_signer = signer;
+}
+
+void        OfficeBlock::setExecutor( Bureaucrat * executor )
+{
+    this->_executor = executor;
 }
 
 /*

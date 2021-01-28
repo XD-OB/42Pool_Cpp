@@ -38,10 +38,15 @@ class   OfficeBlock
         );
         virtual ~OfficeBlock( void );
 
+        // Getters
+        Intern *        getIntern( void ) const ;
+        Bureaucrat *    getSigner( void ) const ;
+        Bureaucrat *    getExecutor( void ) const ;
+
         // Setters
-        void        setIntern( Intern & intern );
-        void        setSigner( Bureaucrat & signer );
-        void        setExecutor( Bureaucrat & executor );
+        void        setIntern( Intern * intern );
+        void        setSigner( Bureaucrat * signer );
+        void        setExecutor( Bureaucrat * executor );
 
         // Member functions
         void        doBureaucracy(

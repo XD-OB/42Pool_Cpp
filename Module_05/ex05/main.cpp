@@ -6,107 +6,71 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 03:12:59 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 03:35:23 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:14:02 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "OfficeBlock.hpp"
+#include "CentralBureaucracy.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <cstdlib>
 
 
-void    exec_doBureaucracy(
-    OfficeBlock & ob,
-    std::string const & formName,
-    std::string const & target
-) {
-    try
-    {
-        ob.doBureaucracy(formName, target);
-    }
-    catch( OfficeBlock::NoInternException & e )
-    {
-        std::cout << "Office Block Error: " << e.what() << std::endl;
-    }
-    catch( OfficeBlock::NoSignerException & e )
-    {
-        std::cout << "Office Block Error: " << e.what() << std::endl;
-    }
-    catch( OfficeBlock::NoExecutorException & e )
-    {
-        std::cout << "Office Block Error: " << e.what() << std::endl;
-    }
-    catch( OfficeBlock::FormNotMadeException & e )
-    {
-        std::cout << "Office Block Error: " << e.what() << std::endl;
-    }
-    catch( OfficeBlock::SignerGradeLowException & e )
-    {
-        std::cout << "Office Block Error: " << e.what() << std::endl;
-    }
-    catch( OfficeBlock::ExecutorGradeLowException & e )
-    {
-        std::cout << "Office Block Error: " << e.what() << std::endl;
-    }
-    catch( std::exception & e )
-    {
-        std::cout << "Office Block Error: " << e.what() << std::endl;
-    }
-}
-
 int     main( void )
 {
-    Bureaucrat      oussama = Bureaucrat("Oussama Belouche", 10);
-    Bureaucrat      anas = Bureaucrat("Anas Elouargui", 54);
-    Bureaucrat      ali = Bureaucrat("Ali Zabadi", 150);
-    Intern          idiotOne;
+    std::cout << "------------ In a world dominated by Bureaucracy ep 6: 'Long Waiting List in the Central' -----------" \
+              << std::endl << std::endl;
 
-    OfficeBlock     ob_perfect;
-    OfficeBlock     ob_noIntern(NULL, &anas, &oussama);
-    OfficeBlock     ob_noSigner(&idiotOne, NULL, &oussama);
-    OfficeBlock     ob_noExecutor(&idiotOne, &anas, NULL);
-    OfficeBlock     ob_lowSigner(&idiotOne, &ali, &oussama);
-    OfficeBlock     ob_lowExecutor(&idiotOne, &anas, &ali);
+    CentralBureaucracy      mo9ata3a;
+
+    // empty central
+    mo9ata3a.doBureaucracy();
+
+    Bureaucrat      oussama("Oussama", 1);
+    Bureaucrat      ilyas("Ilyas", 4);
+    Bureaucrat      souad("Souad", 5);
+    Bureaucrat      anas("Anas", 8);
+    Bureaucrat      ali("Ali", 15);
+    Bureaucrat      youssef("Youssef", 6);
+    Bureaucrat      aya("Aya", 12);
+    Bureaucrat      ikram("Ikram", 11);
+    Bureaucrat      said("Said", 9);
+    Bureaucrat      mohammed("Mohammed", 10);
     
-    ob_perfect.setIntern(idiotOne);
-    ob_perfect.setSigner(anas);
-    ob_perfect.setExecutor(oussama);
+    std::cout << mo9ata3a << std::endl;
+
+    // Feed Bureaucrats
+    mo9ata3a.feed( oussama );
+    mo9ata3a.feed( ilyas );
+    mo9ata3a.feed( souad );
+    mo9ata3a.feed( anas );
+    mo9ata3a.feed( ali );
+    mo9ata3a.feed( youssef );
+    mo9ata3a.feed( aya );
+    mo9ata3a.feed( ikram );
+    mo9ata3a.feed( said );
+    mo9ata3a.feed( mohammed );
+
+    std::cout << mo9ata3a << std::endl;
     
-    // Perfect Office Block
-    std::cout << "------ Perfect Office Block --------------------------- " << std::endl;
-    exec_doBureaucracy(ob_perfect, "shrubbery creation", "One");
-    std::cout << std::endl;
+    // no targets
+    mo9ata3a.doBureaucracy();
 
-    // Perfect Office Block but Wrong Form Type
-    std::cout << "------ Perfect Office Block but Wrong Form Type ------- " << std::endl;
-    exec_doBureaucracy(ob_perfect, "flushy pushy", "Two");
-    std::cout << std::endl;
-
-    // Office Block without an Intern
-    std::cout << "------ Perfect Office Block without an Intern --------- " << std::endl;
-    exec_doBureaucracy(ob_noIntern, "shrubbery creation", "Three");
-    std::cout << std::endl;
-
-    // Office Block without a Signer
-    std::cout << "------ Perfect Office Block without a Signer ---------- " << std::endl;
-    exec_doBureaucracy(ob_noSigner, "shrubbery creation", "Four");
-    std::cout << std::endl;
-    
-    // Office Block without an Executor
-    std::cout << "------ Perfect Office Block without an Executor ------- " << std::endl;
-    exec_doBureaucracy(ob_noExecutor, "shrubbery creation", "Five");
-    std::cout << std::endl;
-
-    // Office Block with Low Grade Signer
-    std::cout << "------ Perfect Office Block with Low Grade Signer ----- " << std::endl;
-    exec_doBureaucracy(ob_lowSigner, "shrubbery creation", "Six");
-    std::cout << std::endl;
-
-    // Office Block with Low Grade Executor
-    std::cout << "------ Perfect Office Block with Low Grade Executor --- " << std::endl;
-    exec_doBureaucracy(ob_lowExecutor, "shrubbery creation", "Seven");
-    std::cout << std::endl;
+    // Feed Targets
+    mo9ata3a.queueUp("Kriss");
+	mo9ata3a.queueUp("Kelvin");
+	mo9ata3a.queueUp("Keryan");
+	mo9ata3a.queueUp("Kenjy");
+	mo9ata3a.queueUp("Kassim");
+	mo9ata3a.queueUp("Kerim");
+	mo9ata3a.queueUp("Kameron");
+	mo9ata3a.queueUp("Killyan");
+	mo9ata3a.queueUp("Kyliane");
+	mo9ata3a.queueUp("Kerem");
+	mo9ata3a.queueUp("Kevin");
+	mo9ata3a.queueUp("Kentin");
+	mo9ata3a.queueUp("Khalis");
+	mo9ata3a.queueUp("Kylan");
 
     return 0;
 }
