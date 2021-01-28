@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:27 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 17:46:03 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:12:27 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 typedef struct          s_targetWL
 {
-    std::string &           target;
+    std::string             target;
     struct s_targetWL *     next;
 }                       t_targetWL;
 
 typedef struct          s_bureaucratWL
 {
-    Bureaucrat &            bureaucrat;
+    Bureaucrat *            bureaucrat;
     struct s_bureaucratWL * next;
 }                       t_bureaucratWL;
 
@@ -48,7 +48,7 @@ class   CentralBureaucracy
         void        _copyCentral( CentralBureaucracy const & src );
         void        _copyBWL( CentralBureaucracy const & src );
         void        _copyTWL( CentralBureaucracy const & src );       
-        void        _pushBWL( Bureaucrat & Bureaucrat );
+        void        _pushBWL( Bureaucrat * Bureaucrat );
 
     public:
         CentralBureaucracy( void );
@@ -75,5 +75,7 @@ class   CentralBureaucracy
         // Exceptions
 
 };
+
+std::ostream &  operator<<( std::ostream & os, CentralBureaucracy const & rhs );
 
 #endif

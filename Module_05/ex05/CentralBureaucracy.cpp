@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:23 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 18:07:09 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:31:48 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 **  Static       ==============================================================
 */
 
-std::string     _works[3] = {
+std::string     CentralBureaucracy::_works[3] = {
 	"presidential pardon",
 	"robotomy request",
     "shrubbery creation"
@@ -59,7 +59,7 @@ CentralBureaucracy::~CentralBureaucracy( void )
 **  Operators   ===============================================================
 */
 
-CentralBureaucracy &      CentralBureaucracy::operator=( CentralBureaucracy const & rhs )
+CentralBureaucracy &    CentralBureaucracy::operator=( CentralBureaucracy const & rhs )
 {
     if ( this != &rhs ) {
         this->_nbrBureaucrats = rhs.getNbrBureaucrats();
@@ -69,6 +69,17 @@ CentralBureaucracy &      CentralBureaucracy::operator=( CentralBureaucracy cons
     }
     return *this;
 }
+
+std::ostream &          operator<<( std::ostream & os, CentralBureaucracy const & rhs )
+{
+    std::cout << " ==> Central Bureaucracy:" << std::endl;
+    std::cout << "Number of full offices: " << rhs.getNbrFullOffices() << std::endl;
+    std::cout << "Number of bureaucrats: " << rhs.getNbrBureaucrats() << std::endl;
+    std::cout << "Number of targets: " << rhs.getNbrTargets() << std::endl;
+    rhs.showBWL();
+    rhs.showTWL();
+    return os;
+}   
 
 /*
 **  Getters     ===============================================================
@@ -105,13 +116,15 @@ const {
     t_bureaucratWL *    current = this->_bureaucratWL;
 
     std::cout << "Bueraucrats Waiting List:" << std::endl;
-    std::cout << "Oooh littles ones waiting for a seat in the central :(" << std::endl;
 
     if ( !current )
         std::cout << "Empty!" << std::endl;
 
-    while ( current )
+    std::cout << "Oooh littles ones waiting for a seat in the central :(" << std::endl;
+    while ( current ) {
         std::cout << current->bureaucrat << std::endl;
+        current = current->next;
+    }
 }
 
 void        CentralBureaucracy::showTWL( void )
@@ -119,13 +132,15 @@ const {
     t_targetWL *        current = this->_targetWL;
 
     std::cout << "Targets Waiting List:" << std::endl;
-    std::cout << "Miserables people waiting for their work to be done :(" << std::endl;
 
     if ( !current )
         std::cout << "Empty!" << std::endl;
 
-    while ( current )
+    std::cout << "Miserables people waiting for their work to be done :(" << std::endl;
+    while ( current ) {
         std::cout << current->target << std::endl;
+        current = current->next;
+    }
 }
 
 void        CentralBureaucracy::feed( Bureaucrat & bureaucrat )
@@ -146,7 +161,7 @@ void        CentralBureaucracy::feed( Bureaucrat & bureaucrat )
         }
             
     }
-    else this->_pushBWL( bureaucrat );
+    else this->_pushBWL( &bureaucrat );
     
     this->_nbrBureaucrats++;
 }
@@ -154,12 +169,16 @@ void        CentralBureaucracy::feed( Bureaucrat & bureaucrat )
 void        CentralBureaucracy::queueUp( std::string const & target )
 {
     t_targetWL *    room = new t_targetWL;
+    t_targetWL *    curr = this->_targetWL;
 
     room->target = target;
     room->next = NULL;
 
-    if ( !this->_targetWL ) this->_targetWL = room;
-    else                    this->_targetWL->next = room;
+    if ( !curr ) this->_targetWL = room;
+    else {
+       while ( curr->next ) curr = curr->next;
+       curr->next = room;
+    }
     
     this->_nbrTargets++;
 }
@@ -192,8 +211,8 @@ void        CentralBureaucracy::fireBureaucrat( void )
     {
         indexOffice = rand() % this->_nbrFullOffices;
 
-        if ( rand() % 2 ) this->_central[ indexOffice ].setSigner( &this->_bureaucratWL->bureaucrat );
-        else              this->_central[ indexOffice ].setExecutor( &this->_bureaucratWL->bureaucrat );
+        if ( rand() % 2 ) this->_central[ indexOffice ].setSigner( this->_bureaucratWL->bureaucrat );
+        else              this->_central[ indexOffice ].setExecutor( this->_bureaucratWL->bureaucrat );
     }
 }
 
@@ -312,15 +331,19 @@ void        CentralBureaucracy::_copyTWL( CentralBureaucracy const & src )
     this->_nbrTargets = src.getNbrTargets();
 }
 
-void        CentralBureaucracy::_pushBWL( Bureaucrat & bureaucrat )
+void        CentralBureaucracy::_pushBWL( Bureaucrat * bureaucrat )
 {
     t_bureaucratWL *    room = new t_bureaucratWL;
+    t_bureaucratWL *    curr = this->_bureaucratWL;
 
     room->bureaucrat = bureaucrat;
     room->next = NULL;
 
-    if ( !this->_bureaucratWL ) this->_bureaucratWL = room;
-    else                        this->_bureaucratWL->next = room; 
+    if ( !curr ) this->_bureaucratWL = room;
+    else {
+        while ( curr->next ) curr = curr->next;
+        curr->next = room;
+    }
 }
 
 /*
