@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:23 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 00:30:30 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 00:19:12 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,10 @@ const {
         if ( Intern::_works[ i ].formName == formName )
             work = Intern::_works[i].func(target);
 
-    if ( work != NULL ) std::cout << "Intern creates " << work->getName() << std::endl;
-    else                std::cout << "Intern can't create this type of form" << std::endl;    
+    if ( work != NULL )
+        std::cout << "Intern creates " << work->getName() << std::endl;
+    else
+        std::cout << "Intern can't create this type of form" << std::endl;    
 
     return work;
 }

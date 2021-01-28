@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:40:39 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/24 05:20:55 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:18:40 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class   Victim
         std::string     _name;
 
     public:
-        Victim( std::string name );
+        Victim( std::string const & name );
         Victim( Victim const & src );
         virtual ~Victim( void );
         // Operators:
@@ -33,7 +33,7 @@ class   Victim
         // Getters:
         std::string     getName( void ) const;
         // Setters:
-        void            setName( std::string name );
+        void            setName( std::string const & name );
         // Members fcts:
         virtual void    getPolymorphed( void ) const;
 };

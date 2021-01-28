@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 12:34:38 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 14:47:02 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:34:36 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class   SuperTrap :
 {
     public:
         SuperTrap( void );
-        SuperTrap( std::string name );
+        SuperTrap( std::string const & name );
         SuperTrap( SuperTrap const & src );
         ~SuperTrap( void );
 

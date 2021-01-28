@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 12:34:43 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 15:49:45 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:34:31 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ SuperTrap::SuperTrap( void ) :
               << " a random SP3R-TP, the MOST POWERFUL kind of trap." << std::endl;
 }
 
-SuperTrap::SuperTrap( std::string name ) :
+SuperTrap::SuperTrap( std::string const & name ) :
     ClapTrap(
         SP3R_TP,      // Type
         name,         // Name

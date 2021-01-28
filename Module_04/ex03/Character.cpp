@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 03:36:26 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 22:39:20 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:26:16 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 */
 
 Character::Character( void ) :
-    _name("John Snow"), _invSize(0)
+    _name("John Snow"),
+    _invSize(0)
 {
     for ( int i = 0; i < 4; i++ )
         this->_inventory[i] = NULL;
 }
 
-Character::Character( std::string name ) :
-    _name(name), _invSize(0)
+Character::Character( std::string const & name ) :
+    _name(name),
+    _invSize(0)
 {
     for ( int i = 0; i < 4; i++ )
         this->_inventory[i] = NULL;

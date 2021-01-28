@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 15:08:34 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:34:20 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ScavTrap::ScavTrap( void ) : ClapTrap(
               << " at your service!, a random SC4V-TP that will make sure that no one shall pass your doors without a CHALLENGE!" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap(
+ScavTrap::ScavTrap( std::string const & name ) : ClapTrap(
         SC4V_TP,      // Type
         name,         // Name
         1,            // lvl

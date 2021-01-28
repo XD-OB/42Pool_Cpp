@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:18:31 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 17:09:29 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:32:49 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ NinjaTrap::NinjaTrap( void ) : ClapTrap(
               << " your personal ninja!, a random IN4C that serve the legion! Viva la Robolution!" << std::endl;
 }
 
-NinjaTrap::NinjaTrap( std::string name ) : ClapTrap(
+NinjaTrap::NinjaTrap( std::string const & name ) : ClapTrap(
         IN4C_TP,      // Type
         name,         // Name
         1,            // lvl

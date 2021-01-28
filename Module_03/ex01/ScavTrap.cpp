@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 16:37:21 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:30:28 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ScavTrap::ScavTrap( void ) :
               << " Hello! I am your new SC4V-TP bot, a Class C Hyperion Robot. I have no name just a random SC4V!" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string name ) :
+ScavTrap::ScavTrap( std::string const & name ) :
     _name(name),
     _hitPoints(ScavTrap::_maxHitPoints),
     _energyPoints(ScavTrap::_maxEnergyPoints),

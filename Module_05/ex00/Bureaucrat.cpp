@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:23 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/27 00:41:42 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:09:52 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Bureaucrat::Bureaucrat( void ) :
     _name("John Snow"), _grade(1)
 { }
 
-Bureaucrat::Bureaucrat( std::string name, int grade ) :
+Bureaucrat::Bureaucrat( std::string const & name, int grade ) :
     _name(name), _grade(grade)
 {
     if ( grade < 1 ) throw Bureaucrat::GradeTooHighException();

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:12 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 11:21:59 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:30:22 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class   ScavTrap
 
     public:
         ScavTrap( void );
-        ScavTrap( std::string name );
+        ScavTrap( std::string const & name );
         ScavTrap( ScavTrap const & src );
         ~ScavTrap( void );
 

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 00:57:53 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/27 03:11:11 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:07:58 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class   Form
 
     public:
         Form(
-            std::string name,
+            std::string const & name,
             int gradeSign,
             int gradeExec
         );

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:27 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/27 03:39:56 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:10:23 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ class   Bureaucrat
         Bureaucrat( void );
 
     public:
-        Bureaucrat( std::string _name, int _grade );
+        Bureaucrat(
+            std::string const & name,
+            int grade
+        );
         Bureaucrat( Bureaucrat const & src );
         ~Bureaucrat( void );
 

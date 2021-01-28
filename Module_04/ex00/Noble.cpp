@@ -22,7 +22,7 @@ Noble::Noble( void ) : Victim("Mr NoName")
     std::cout << "Money can buy you happiness." << std::endl;
 }
 
-Noble::Noble( std::string name ) : Victim(name)
+Noble::Noble( std::string const & name ) : Victim(name)
 {
     std::cout << "Money can buy you happiness." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:12 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 09:20:29 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:29:23 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class   FragTrap
 
     public:
         FragTrap( void );
-        FragTrap( std::string name );
+        FragTrap( std::string const & name );
         FragTrap( FragTrap const & src );
         ~FragTrap( void );
 

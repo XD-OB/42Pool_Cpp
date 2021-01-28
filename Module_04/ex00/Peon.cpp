@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 16:24:05 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 22:44:48 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:22:14 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Peon::Peon( void ) : Victim("Mr Nobody")
     std::cout << "Zog zog." << std::endl;
 }
 
-Peon::Peon( std::string name ) : Victim(name)
+Peon::Peon( std::string const & name ) : Victim(name)
 {
     std::cout << "Zog zog." << std::endl;
 }

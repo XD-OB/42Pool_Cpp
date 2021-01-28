@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 16:51:15 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:30:12 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ FragTrap::FragTrap( void ) :
               << " Hello! I am your new FR4G-TP bot, a Class C Hyperion Robot. I have no name just a random Fr4g!" << std::endl;
 }
 
-FragTrap::FragTrap( std::string name ) :
+FragTrap::FragTrap( std::string const & name ) :
     _name(name),
     _hitPoints(FragTrap::_maxHitPoints),
     _energyPoints(FragTrap::_maxEnergyPoints),

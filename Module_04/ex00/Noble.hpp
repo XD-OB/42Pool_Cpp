@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 16:15:58 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 21:59:12 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:22:32 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class   Noble : public Victim
         Noble( void );
 
     public:
-        Noble( std::string name );
+        Noble( std::string const & name );
         Noble( Noble const & src );
         virtual ~Noble( void );
         // Operators:

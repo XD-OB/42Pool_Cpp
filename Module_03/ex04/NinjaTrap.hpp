@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:18:34 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 14:46:34 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:34:13 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class   NinjaTrap : public virtual ClapTrap
 {
     public:
         NinjaTrap( void );
-        NinjaTrap( std::string name );
+        NinjaTrap( std::string const & name );
         NinjaTrap( NinjaTrap const & src );
         ~NinjaTrap( void );
 

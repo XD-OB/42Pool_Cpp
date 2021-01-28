@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 00:57:50 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/27 06:13:20 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:07:14 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ Form::Form( void ) :
     _gradeExec(1)
 { }
 
-Form::Form( std::string name, int gradeSign, int gradeExec ) :
+Form::Form(
+    std::string const & name,
+    int gradeSign,
+    int gradeExec
+) :
     _name(name),
     _isSigned(false),
     _gradeSign(gradeSign),

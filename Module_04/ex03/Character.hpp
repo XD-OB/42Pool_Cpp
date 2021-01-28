@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 03:20:51 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/26 05:59:09 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:25:48 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class   Character : public ICharacter
         Character( void );
 
     public:
-        Character( std::string name );
+        Character( std::string const & name );
         Character( Character const & src );
         ~Character( void );
         

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:40:44 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 17:07:14 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:18:52 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 **  Constructors:
 */
 
-Victim::Victim( void ) : _name( "John Snow" )
+Victim::Victim( void ) :
+    _name( "John Snow" )
 {
     std::cout << "Some random victim whitout a name just appeared!." << std::endl;
 }
 
-Victim::Victim( std::string name) : _name( name )
+Victim::Victim( std::string const & name) :
+    _name( name )
 {
     std::cout << "Some random victim called " << name << " just appeared!" << std::endl;
 }
@@ -54,7 +56,7 @@ const {
 
 //Setters:
 
-void            Victim::setName( std::string name )
+void            Victim::setName( std::string const & name )
 {
     if ( !name.empty() ) this->_name = name;
 }

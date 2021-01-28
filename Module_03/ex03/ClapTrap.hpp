@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 09:08:57 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 11:25:49 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:32:16 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ class ClapTrap
     public:
         ClapTrap( void );
         ClapTrap(
-            std::string type,
-            std::string name,
+            std::string const & type,
+            std::string const & name,
             unsigned int level,
             unsigned int hitpoints,
             unsigned int energyPoints,

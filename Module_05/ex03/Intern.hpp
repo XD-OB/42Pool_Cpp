@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:27 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 00:18:49 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:03:42 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 typedef struct  s_work
 {
-    std::string     formName;
-    Form *          (*func)( std::string const & );
+    std::string const &     formName;
+    Form *                  (*func)( std::string const & );
 }               t_work;
 
 class   Intern

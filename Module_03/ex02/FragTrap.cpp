@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 01:39:09 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/22 16:53:10 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:31:39 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ FragTrap::FragTrap( void ) : ClapTrap(
               << " your personal weapon!, a random FR4G-TP that will destruct all your Ennemies!! Let the party begin ;)" << std::endl;
 }
 
-FragTrap::FragTrap( std::string name ) : ClapTrap(
+FragTrap::FragTrap( std::string const & name ) : ClapTrap(
         FR4G_TP,      // Type
         name,         // Name
         1,            // lvl

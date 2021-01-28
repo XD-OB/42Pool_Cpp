@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:08:29 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/23 17:09:02 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:21:20 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,18 @@
 */
 
 Sorcerer::Sorcerer( void ) :
-    _name( "John Snow" ), _title( "-" )
+    _name("John Snow"),
+    _title("-")
 {
     std::cout << "A Sorcerer whitout a name and title is born ... Poor boy." << std::endl;
 }
 
-Sorcerer::Sorcerer( std::string name, std::string title ) :
-    _name( name ), _title( title )
+Sorcerer::Sorcerer(
+    std::string const & name,
+    std::string const & title
+) :
+    _name(name),
+    _title(title)
 {
     std::cout << name << ", " << title << ", is born!" << std::endl;
 }
@@ -63,12 +68,12 @@ const {
 
 //Setters:
 
-void            Sorcerer::setName( std::string name )
+void            Sorcerer::setName( std::string const & name )
 {
     if ( !name.empty() ) this->_name = name;
 }
 
-void            Sorcerer::setTitle( std::string title )
+void            Sorcerer::setTitle( std::string const & title )
 {
     if ( !title.empty() ) this->_title = title;
 }

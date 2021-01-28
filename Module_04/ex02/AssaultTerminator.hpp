@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:03:54 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/25 16:41:36 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/28 02:23:55 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 
 class   AssaultTerminator : public ISpaceMarine
 {
-    private:
-        /* data */
-
     public:
         AssaultTerminator( void );
         AssaultTerminator( AssaultTerminator const & src );
