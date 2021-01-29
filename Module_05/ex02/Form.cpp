@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 00:57:50 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 02:07:14 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:01:25 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,9 +131,6 @@ const {
 /*
 **  Member functions
 */
-
-void        Form::beExecuted( void )
-const { }
 
 void        Form::beSigned( Bureaucrat bureaucrat )
 {

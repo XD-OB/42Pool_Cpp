@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:27 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 02:16:03 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:14:26 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class   Form;
 class   Bureaucrat
 {
     private:
-        std::string     _name;
-        int             _grade;
+        std::string const   _name;
+        int                 _grade;
         
         Bureaucrat( void );
 

@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 00:57:53 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 02:06:37 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:01:30 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class   Form
         int                 getGradeExec( void ) const;
 
         // Member functions
-        virtual void        beExecuted( void ) const;
+        virtual void        beExecuted( void ) const = 0;
         void                beSigned( Bureaucrat bureaucrat );
         void                execute( Bureaucrat executor );
 

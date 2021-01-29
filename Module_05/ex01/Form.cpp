@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 00:57:50 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 02:08:19 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:14:00 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ Form::Form( void ) :
 
 Form::Form(
     std::string const & name,
-    int gradeSign,
-    int gradeExec
+    int const gradeSign,
+    int const gradeExec
 ) :
     _name(name),
     _isSigned(false),
@@ -57,7 +57,11 @@ Form::Form(
         throw Form::GradeTooLowException();
 }
 
-Form::Form( Form const & src )
+Form::Form( Form const & src ) :
+    _name(src.getName()),
+    _isSigned(src.isSigned()),
+    _gradeSign(src.getGradeSign()),
+    _gradeExec(src.getGradeExec())
 {
     *this = src;
 }
@@ -75,12 +79,7 @@ Form::~Form( void )
 
 Form &      Form::operator=( Form const & rhs )
 {
-    if ( this != &rhs ) {
-        this->_name = rhs.getName();
-        this->_isSigned = rhs.isSigned();
-        this->_gradeSign = rhs.getGradeSign();
-        this->_gradeExec = rhs.getGradeExec();
-    }
+    (void)rhs;
     return *this;
 }
 
@@ -111,12 +110,12 @@ const {
     return this->_isSigned;
 }
 
-int                 Form::getGradeSign( void )
+int const &         Form::getGradeSign( void )
 const {
     return this->_gradeSign;
 }
 
-int                 Form::getGradeExec( void )
+int const &         Form::getGradeExec( void )
 const {
     return this->_gradeExec;
 }

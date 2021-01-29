@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 00:57:53 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 02:07:58 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:10:26 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ class   Bureaucrat;
 class   Form
 {
     private:
-        std::string         _name;
+        std::string const   _name;
         bool                _isSigned;
-        int                 _gradeSign;
-        int                 _gradeExec;
+        int const           _gradeSign;
+        int const           _gradeExec;
 
         Form(void);
 
     public:
         Form(
             std::string const & name,
-            int gradeSign,
-            int gradeExec
+            int const gradeSign,
+            int const gradeExec
         );
         Form( Form const & src );
         ~Form( void );
@@ -44,8 +44,8 @@ class   Form
         // Accessors
         std::string const & getName( void ) const;
         bool                isSigned( void ) const;
-        int                 getGradeSign( void ) const;
-        int                 getGradeExec( void ) const;
+        int const &         getGradeSign( void ) const;
+        int const &         getGradeExec( void ) const;
 
         // Member functions
         void                beSigned( Bureaucrat bureaucrat );

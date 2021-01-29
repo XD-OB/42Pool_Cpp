@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:30 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 00:02:44 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:24:22 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int     main( void )
 {
-    std::cout << "------------ In a world dominated by Bureaucracy ep 4 -----------" \
+    std::cout << "------------ In a world dominated by Bureaucracy ep 4: Poor little intern -----------" \
               << std::endl << std::endl;
 
     Bureaucrat      oussama("Oussama", 2);
@@ -77,7 +77,7 @@ int     main( void )
 
 // Unknown Form
 
-    std::cout << "== Unknown Form: ================"<< std::endl;
+    std::cout << "== Unknown Form: ============================"<< std::endl;
     form = ali.makeForm("internship", "anas");
     std::cout << std::endl;
 

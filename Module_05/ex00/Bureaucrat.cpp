@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:22:23 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/28 02:09:52 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:08:24 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ Bureaucrat::~Bureaucrat( void )
 
 Bureaucrat &    Bureaucrat::operator=( Bureaucrat const & rhs )
 {
-    if ( this != &rhs ) {
-        this->_name = rhs.getName();
-        this->_grade = rhs.getGrade();
-    }
+    if ( this != &rhs ) this->_grade = rhs.getGrade();
     return *this;
 }
 
