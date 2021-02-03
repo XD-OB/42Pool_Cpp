@@ -6,7 +6,7 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 17:11:12 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/30 17:48:12 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/02/03 19:12:36 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void    exitUsage( int error );
 class   ConvScalar
 {
     private:
+        void *      _ptr;
         char    _c;
         int     _i;
         float   _f;
@@ -34,10 +35,10 @@ class   ConvScalar
     public:
         ConvScalar( std::string & value );
         ConvScalar( ConvScalar const & src );
+        
         virtual ~ConvScalar( void );
-
-        // Static:
-        static char     transformToChar( std::string & value );
+        void    _transformToChar( std::string & value );
+        void    _transformToInt( std::string & value );
 
         // Operators
         ConvScalar &    operator=( ConvScalar const & rhs );
@@ -49,6 +50,7 @@ class   ConvScalar
         double const &  getDouble( void ) const;
 
         // Member functions
+        char            charValue( void ) const;
 
         // Exceptions
 

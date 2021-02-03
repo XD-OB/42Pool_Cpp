@@ -6,35 +6,13 @@
 /*   By: obelouch <obelouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 17:10:38 by obelouch          #+#    #+#             */
-/*   Updated: 2021/01/30 17:57:45 by obelouch         ###   ########.fr       */
+/*   Updated: 2021/02/03 19:22:52 by obelouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ConvScalar.hpp"
 #include <iostream>
-
-/*
-**  Static functions ==========================================================
-*/
-
-char        transformToChar( std::string & value )
-{
-    if ( isInteger(value) )
-
-    if ( value.size() != 1 ) throw ConvScalar::ImpossibleException();
-    if ( !std::isprint(value[0]) ) throw ConvScalar::NotDisplayableException();
-
-    return value[0];
-}
-
-char        transformToInt( std::string & value )
-{
-    
-}
-
-/*
-**  Constructors ==============================================================
-*/
+#include <cmath>
 
 static bool     isInteger( std::string const & value )
 {
@@ -88,27 +66,51 @@ void *  _getValues( std::string & value )
     return ptr;
 }
 
+/*
+**  Static functions ==========================================================
+*/
 
+// char        transformToInt( std::string & value )
+// {
+    
+// }
+
+/*
+**  Constructors ==============================================================
+*/
 
 ConvScalar::ConvScalar( void )
 { }
 
-ConvScalar::ConvScalar( std::string & value )
+ConvScalar::ConvScalar( std::string & value ) :
+    _ptr( NULL )
 {
+    int     n;
+    double  d;
+    char    c;
 
-    if ( isInteger( value ) ) {
+    if ( isInteger(value) ) {
+        n = std::stoi( value );
+        this->_ptr = &n;
+    }
+    else if ( isFloat(value) ) {
+        d = std::stod( value );
+        this->_ptr = &d; 
+    }
+    else if ( value.size() == 1 ) {
+        c = value[0];
+        this->_ptr = &c;
+    } 
+    else {
         
     }
-        this->_fillWithInt(  ) 
 
-//  Char;
+    //  Char;
     std::cout << "char: ";
     try
     {
-        char    c;
-    
-        c = ConvScalar::transformToChar( value );
-        std::cout << c << std::endl;
+        this->_transformToChar( value );
+        std::cout << this->_c << std::endl;
     }
     catch ( ConvScalar::ImpossibleException & e )
     {
@@ -123,23 +125,21 @@ ConvScalar::ConvScalar( std::string & value )
         std::cout << e.what() << std::endl;
     }
 
-// // Int:
-//     try
-//     {
-//         ConvScalar::transformToChar( value );
-//     }
-//     catch ( ConvScalar::ImpossibleException & e )
-//     {
-//         std::cout << e.what() << std::endl;
-//     }
-//     catch ( ConvScalar::NotDisplayableException & e )
-//     {
-//         std::cout << e.what() << std::endl;
-//     }
-//     catch ( std::exception & e )
-//     {
-//         std::cout << e.what() << std::endl;
-//     }
+// Int:
+    std::cout << "int: ";
+    try
+    {
+        ConvScalar::_transformToInt( value );
+        std::cout << this->_c << std::endl;
+    }
+    catch ( ConvScalar::ImpossibleException & e )
+    {
+        std::cout << e.what() << std::endl;
+    }
+    catch ( std::exception & e )
+    {
+        std::cout << e.what() << std::endl;
+    }
 
 //     if ( value.size() == 1 )
 //         this->_c = value[0];
@@ -186,6 +186,55 @@ ConvScalar &      ConvScalar::operator=( ConvScalar const & rhs )
 /*
 **  Member functions ==========================================================
 */
+// Private:
+
+void        ConvScalar::_transformToChar( std::string & value )
+{
+    if ( isInteger(value) ) {
+        int     n = std::stoi(value);
+
+        if ( n < 0 && n > 255 ) throw ConvScalar::ImpossibleException();
+        this->_c = static_cast<char>(n);
+    }
+    else if ( isFloat(value) ) {
+        double  d = std::stod(value);
+
+        if ( d < 0.0 && d > 255.0 ) throw ConvScalar::ImpossibleException();
+        this->_c = static_cast<char>(d);
+    }
+    else
+    {
+        if ( value.size() != 1 ) throw ConvScalar::ImpossibleException();
+        this->_c = value[0];
+    }
+    if ( !std::isprint(this->_c) ) throw ConvScalar::NotDisplayableException();
+    
+}
+
+void        ConvScalar::_transformToInt( std::string & value )
+{
+    if ( isInteger(value) ) {
+        int     n = std::stoi(value);
+    
+        this->_i = n;
+    }
+    else if ( isFloat(value) ) {
+        double  d = std::stod(value);
+    
+        this->_i = static_cast<int>(d);
+    }
+    
+    else throw ConvScalar::ImpossibleException();
+}
+
+char        ConvScalar::charValue( void )
+const {
+    char *  c;
+
+    c = reinterpret_cast<char*>(this->_ptr);
+
+    if (  )
+}
 
 /*
 **  Exceptions  ===============================================================
