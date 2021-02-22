@@ -11,9 +11,6 @@ This is my Cpp pool from the 42 cursus in 2021
 - Module 07 : ?
 - Module 08 : ?
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-
 ## Owner
 - **Oussama Belouche** 1337
 
